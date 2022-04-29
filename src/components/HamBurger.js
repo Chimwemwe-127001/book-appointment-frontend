@@ -56,13 +56,13 @@ const HamBurger = () => {
         </div>
       </nav>
       <div className={classNames(mobileMenu ? 'block' : 'hidden', 'flex flex-col items-center mt-32')}>
-      <div className="flex gap-2">
-        {social.map((item) => (
-          <a href="/" key={item.icon}><img src={item.icon} alt="social-icon" className="w-8" /></a>
-        ))}
+        <div className="flex gap-2">
+          {social.map((item) => (
+            <a href="/" key={item.icon}><img src={item.icon} alt="social-icon" className="w-8" /></a>
+          ))}
+        </div>
+        <p className="text-gray-700 font-bold mt-2">© 2022</p>
       </div>
-      <p className="text-gray-700 font-bold mt-2">© 2022</p>
-    </div>
     </header>
   );
 };
