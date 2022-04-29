@@ -1,4 +1,5 @@
 /* styles for app */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
 .mobile-btns {
   position: absolute;
@@ -9,4 +10,8 @@
 .header {
   background-image: linear-gradient(to right, #83cc16cc, #83cc16c2), url('./assets/images/header-mobile-bg.png');
   background-size: cover;
+}
+
+.desktop-nav {
+  font-family: 'Roboto', sans-serif;
 }

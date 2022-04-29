@@ -1,5 +1,11 @@
 import React from 'react';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
+import twitter from '../assets/images/twitter-icon.png';
+import facebook from '../assets/images/facebook-icon.png';
+import linkedin from '../assets/images/linkedin-icon.png';
+import github from '../assets/images/github-icon.png';
+
+
 const navigation = [
   { name: 'Doctors', href: '#', current: true },
   { name: 'Reserve', href: '#', current: false },
@@ -8,6 +14,8 @@ const navigation = [
   { name: 'Delete Doctor', href: '#', current: false },
 ];
 
+const social =[twitter, facebook, linkedin, github];
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -15,21 +23,21 @@ function classNames(...classes) {
 const SideBar = () => (
   <div className="flex flex-col w-64">
     <div className="flex flex-col h-0 flex-1 border-r border-gray-200 bg-gray-100">
-      <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+      <div className="flex-1 flex flex-col pt-3 pb-4 overflow-y-auto">
         <div className="flex items-center flex-shrink-0 px-4">
-          <a href="/"><img src={logo} className="w-40" alt="logo"/></a>
+          <a href="/"><img src={logo} className="w-40" alt="logo" /></a>
         </div>
-        <nav className="mt-5 flex-1" aria-label="Sidebar">
-          <div className="px-2 space-y-1">
+        <nav className="mt-12 flex-1 desktop-nav" aria-label="Sidebar">
+          <div className="pl-3 uppercase font-black text-md">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 className={classNames(
                   item.current
-                    ? 'bg-gray-200 text-gray-900'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
+                    ? 'bg-lime-500 text-slate-50'
+                    : 'text-slate-900 hover:bg-lime-200 hover:text-slate-900',
+                  'group flex items-center pl-5 py-3',
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
@@ -37,9 +45,16 @@ const SideBar = () => (
               </a>
             ))}
           </div>
-          <hr className="border-t border-gray-200 my-5" aria-hidden="true" />
         </nav>
       </div>
+      <div className="flex-shrink-0 flex-200 p-4">
+         <div className="flex gap-2">
+         {social.map((item) => (
+           <a href="/"><img src={item} alt="social-icon" className="w-6" /></a>
+         ))}
+         </div>
+         <p className="text-gray-700 font-bold mt-2">© 2022</p>
+        </div>
     </div>
   </div>
 );
