@@ -5,7 +5,6 @@ import facebook from '../assets/images/facebook-icon.png';
 import linkedin from '../assets/images/linkedin-icon.png';
 import github from '../assets/images/github-icon.png';
 
-
 const navigation = [
   { name: 'Doctors', href: '#', current: true },
   { name: 'Reserve', href: '#', current: false },
@@ -14,7 +13,12 @@ const navigation = [
   { name: 'Delete Doctor', href: '#', current: false },
 ];
 
-const social =[twitter, facebook, linkedin, github];
+const social = [
+  { icon: twitter },
+  { icon: facebook },
+  { icon: linkedin },
+  { icon: github },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -48,13 +52,13 @@ const SideBar = () => (
         </nav>
       </div>
       <div className="flex-shrink-0 flex-200 p-4">
-         <div className="flex gap-2">
-         {social.map((item) => (
-           <a href="/"><img src={item} alt="social-icon" className="w-6" /></a>
-         ))}
-         </div>
-         <p className="text-gray-700 font-bold mt-2">© 2022</p>
+        <div className="flex gap-2">
+          {social.map((item) => (
+            <a href="/" key={item.icon}><img src={item.icon} alt="social-icon" className="w-6" /></a>
+          ))}
         </div>
+        <p className="text-gray-700 font-bold mt-2">© 2022</p>
+      </div>
     </div>
   </div>
 );
