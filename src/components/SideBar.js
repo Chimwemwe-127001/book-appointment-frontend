@@ -36,8 +36,8 @@ const SideBar = () => (
                 className={classNames(
                   item.current
                     ? 'bg-lime-500 text-slate-50'
-                    : 'text-slate-900 hover:bg-lime-200 hover:text-slate-900',
-                  'group flex items-center pl-5 py-3',
+                    : 'text-slate-900 hover:bg-lime-200',
+                  'group flex items-center pl-5 py-3 hover:text-slate-900',
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
