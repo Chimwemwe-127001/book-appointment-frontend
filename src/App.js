@@ -1,9 +1,9 @@
 import './App.css';
-import Header from './component/Header';
+import Home from './pages/Home';
 
 const App = () => (
   <div className="text-sky-500 d-flex">
-    <Header />
+    <Home />
   </div>
 );
 
