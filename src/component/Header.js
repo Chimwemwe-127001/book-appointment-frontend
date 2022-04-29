@@ -16,7 +16,7 @@ const menuItems = [
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
-    <header className={`flex flex-col bg-lime-500 px-8 py-7 ${mobileMenu ? 'h-screen' : 'h-fit'} fixed top-0 w-screen shadow-xl md:flex-row md:justify-between md:px-20 md:h-fit`}>
+    <header className={`flex flex-col bg-lime-500 px-8 py-7 ${mobileMenu ? 'h-screen header' : 'h-fit'} fixed top-0 w-screen shadow-xl md:flex-row md:justify-between md:px-20 md:h-fit`}>
       <a href="/" className="text-lg text-slate-50">Book Appointents App</a>
       <nav>
         <div className="text-slate-50 md:hidden mobile-btns">

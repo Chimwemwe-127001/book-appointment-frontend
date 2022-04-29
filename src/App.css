@@ -5,3 +5,8 @@
   top: 20px;
   right: 20px;
 }
+
+.header {
+  background-image: linear-gradient(to right, #83cc16cc, #83cc16c2), url('./assets/images/header-mobile-bg.png');
+  background-size: cover;
+}
