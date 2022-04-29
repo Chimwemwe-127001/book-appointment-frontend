@@ -9,7 +9,7 @@ const menuItems = [
   { name: 'Doctors', path: '/' },
   { name: 'Reserve', path: '/' },
   { name: 'My reservations', path: '/' },
-  { name: 'Add doctor', path: '/' },
+  { name: 'Add dcotor', path: '/' },
   { name: 'Delete doctor', path: '/' },
 ];
 
@@ -17,7 +17,7 @@ const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <header className={`flex flex-col bg-primaryColor px-8 py-7 ${mobileMenu ? 'h-screen' : 'h-fit'} fixed top-0 w-screen shadow-xl md:flex-row md:justify-between md:px-20 md:h-fit`}>
-      <a href="/" className="text-lg">Book Appoinments App </a>
+      <a href="/" className="text-lg">Book Appointents App</a>
       <nav>
         <div className="text-secondaryColor md:hidden mobile-btns">
           <button
