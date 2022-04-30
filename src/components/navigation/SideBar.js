@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from '../assets/images/logo.png';
-import twitter from '../assets/images/twitter-icon.png';
-import facebook from '../assets/images/facebook-icon.png';
-import linkedin from '../assets/images/linkedin-icon.png';
-import github from '../assets/images/github-icon.png';
+import logo from '../../assets/images/logo.png';
+import twitter from '../../assets/images/twitter-icon.png';
+import facebook from '../../assets/images/facebook-icon.png';
+import linkedin from '../../assets/images/linkedin-icon.png';
+import github from '../../assets/images/github-icon.png';
 
 const navigation = [
   { name: 'Doctors', href: '#', current: true },

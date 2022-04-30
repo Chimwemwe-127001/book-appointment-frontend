@@ -15,3 +15,7 @@
 .desktop-nav {
   font-family: 'Roboto', sans-serif;
 }
+
+.disablebtn {
+  display: none;
+}
