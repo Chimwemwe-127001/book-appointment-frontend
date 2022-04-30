@@ -17,7 +17,7 @@ const Home = () => (
         <p className="text-gray-500 mt-1 text-lg">Please select a doctor</p>
       </div>
       <div className="flex flex-col items-center">
-      <Doctors />
+        <Doctors />
       </div>
     </div>
   </div>
