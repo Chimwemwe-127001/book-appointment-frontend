@@ -17,12 +17,13 @@ const Doctors = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex mt-20">
       {displayDoctors.map((item) => (
           <div className="flex flex-col items-center">
-         <img src={item.image} alt="doctor" />
-         <h3>{item.name}</h3>
-         <p>{item.details}</p>
+         <img src={item.image} alt="doctor" className="rounded-full w-60 h-60" />
+         <h3 className="uppercase text-slate-900 text-lg mt-6 font-bold">{item.name}</h3>
+         <hr class="border-t-2 border-dashed border-gray-500 w-32 mt-4"></hr>
+         <p className="">{item.details}</p>
          </div>
             ))}
       <Paginate pageCount={pageCount} changePage={changePage} />
