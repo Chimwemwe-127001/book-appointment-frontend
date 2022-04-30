@@ -4,13 +4,13 @@ import ReactPaginate from 'react-paginate';
 
 const Paginate = ({ pageCount, changePage }) => (
   <ReactPaginate
-    previousLabel="prev"
-    nextLabel="next"
+    previousLabel="&#5130;"
+    nextLabel="&#5125;"
     pageCount={pageCount}
     onPageChange={changePage}
-    pageLinkClassName="disablebtn"
-    previousLinkClassName="previous"
-    nextLinkClassName="next"
+    pageLinkClassName="page-btns"
+    previousLinkClassName="previous-btn"
+    nextLinkClassName="next-btn"
   />
 );
 

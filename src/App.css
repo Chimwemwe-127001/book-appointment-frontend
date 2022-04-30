@@ -16,6 +16,31 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.disablebtn {
+.page-btns {
   display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  
+  .previous-btn {
+    position: absolute;
+    top: 330px;
+    left: 280px;
+    background-color: #84cc16;
+    padding: 15px 20px 15px 40px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 0 30px 30px 0;
+  }
+
+  .next-btn {
+    position: absolute;
+    top: 330px;
+    right: 80px;
+    background-color: #84cc16;
+    padding: 15px 40px 15px 20px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 30px 0 0 30px;
+  }
 }
