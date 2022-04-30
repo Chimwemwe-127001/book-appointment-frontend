@@ -28,7 +28,7 @@ const social = [
 const HamBurger = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
-    <header className={`flex flex-col px-8  ${mobileMenu ? 'h-screen header' : 'h-fit'} fixed top-0 w-screen shadow-xl lg:hidden`}>
+    <header className={`flex flex-col px-8 bg-slate-50 ${mobileMenu ? 'h-screen header' : 'h-fit'} fixed top-0 w-screen shadow-xl lg:hidden`}>
       <a href="/" className="text-lg text-slate-50"><img src={logo} className={`w-24 ${mobileMenu ? 'hidden' : 'block'}`} alt="logo" /></a>
       <nav>
         <div className="text-slate-50 mobile-btns">

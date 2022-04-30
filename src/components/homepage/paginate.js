@@ -11,6 +11,7 @@ const Paginate = ({ pageCount, changePage }) => (
     pageLinkClassName="page-btns"
     previousLinkClassName="previous-btn"
     nextLinkClassName="next-btn"
+    disabledLinkClassName="disable-btns"
   />
 );
 
