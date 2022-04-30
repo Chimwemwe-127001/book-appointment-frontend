@@ -47,7 +47,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  
   .previous-btn {
     top: 330px;
     left: 280px;
@@ -56,6 +55,5 @@
   .next-btn {
     top: 330px;
     right: 50px;
-}
-
+  }
 }
