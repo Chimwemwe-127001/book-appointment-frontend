@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Paginate from './paginate';
 
-const Doctors =()=>{
+const Doctors = () => {
   const doctors = useSelector((state) => state.doctorsReducer);
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -17,15 +17,17 @@ const Doctors =()=>{
   };
 
   return (
-    <div>
-          {
-            displayDoctors.map((item) => (
-              <p>{item.name}</p>
-            ))
-          }
-          <Paginate pageCount={pageCount} changePage={changePage} />
-        </div>
-  )
-}
+    <div className="flex">
+      {displayDoctors.map((item) => (
+          <div className="flex flex-col items-center">
+         <img src={item.image} alt="doctor" />
+         <h3>{item.name}</h3>
+         <p>{item.details}</p>
+         </div>
+            ))}
+      <Paginate pageCount={pageCount} changePage={changePage} />
+    </div>
+  );
+};
 
 export default Doctors;
