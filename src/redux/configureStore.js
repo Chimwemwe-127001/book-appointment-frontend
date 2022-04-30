@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import doctorsReducer from './doctors/doctors';
 
 const reducer = combineReducers({
-  greetingsReducer,
+  doctorsReducer,
 });
 
 const store = createStore(
