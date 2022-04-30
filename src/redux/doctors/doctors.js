@@ -1,7 +1,6 @@
-
 // state
 const initialState = [{
-  name: "Ranjeet"
+  name: 'Ranjeet',
 }];
 
 // reducer
