@@ -22,6 +22,7 @@ const ReserveForm = () => (
               </ul>
             </div> 
           </button>
+          <button className="bg-white-500 text-green-600"> Book Now </button>
         </form>
       </div>
     </div>
