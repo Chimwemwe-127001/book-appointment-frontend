@@ -6,8 +6,8 @@ import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
 
 const navigation = [
-  { name: 'Doctors', href: '#', current: true },
-  { name: 'Reserve', href: '#', current: false },
+  { name: 'Doctors', href: '/', current: true },
+  { name: 'Reserve', href: '/reserve', current: false },
   { name: 'My reservations', href: '#', current: false },
   { name: 'Add doctor', href: '#', current: false },
   { name: 'Delete Doctor', href: '#', current: false },
