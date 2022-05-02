@@ -1,8 +1,8 @@
-import { FaBars, FaSistrix, FaAngleDown } from 'react-icons/fa';
+import { FaBars, FaSistrix } from 'react-icons/fa';
 
 const ReserveForm = () => (
-  <div className="h-screen reserveContainer">
-    <div className="m-3 flex justify-between">
+  <div className="h-screen reserveContainer text-white">
+    <div className="p-3 flex justify-between">
       <button type="button" className="text-white">
         <FaBars />
       </button>
@@ -12,33 +12,25 @@ const ReserveForm = () => (
     </div>
 
     <div>
-      <div className="flex items-center">
-        <h4 className="mb-3">
-          <span className="underline"> Book Appointment </span>
+      <div>
+        <h4 className="text-4xl tracking-widest reserveFormHeading">
+          Book Appointment
         </h4>
       </div>
-      <p className="flex items-center">
+      <p className="text-sm mt-4">
         We have different doctors from different parts of the world.
-        {' '}
         <br />
         If you wish to find out if we have a doctor in your area, please use the selector below
       </p>
-      <div>
-        <form action="#">
-          <input type="text" name="username" />
-          <button type="button" className="text-white hover:bg-white-800">
-            London
-            <FaAngleDown />
-            <div>
-              <ul>
-                <li> Nairobi </li>
-                <li> Abuja </li>
-                <li> Delhi </li>
-                <li> Mumbai </li>
-              </ul>
-            </div>
-          </button>
-          <button type="button" className="bg-white-500 text-green-600"> Book Now </button>
+      <div className="mt-5">
+        <form action="/#">
+          <select name="cities" id="cities">
+            <option value="Nairobi">Nairobi</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Abuja">Abuja</option>
+            <option value="Lusaka">Lusaka</option>
+          </select>
+          <input type="submit" value="Book Now" className="text-lime-500" />
         </form>
       </div>
     </div>
