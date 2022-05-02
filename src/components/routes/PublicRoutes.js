@@ -1,31 +1,27 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // eslint-disable-next-line consistent-return
-const PrivateRoute = ({ children }) => {
+const PublicRoutes = ({ children }) => {
   const loading = false;
   const accessToken = false;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!accessToken && !loading) {
-      navigate('/login');
-    }
-  }, []);
-
-  if (accessToken) {
+  if (!accessToken && !loading) {
     return children;
   } if (loading) {
     return <p>Loading...</p>;
+  } if (accessToken && !loading) {
+    navigate('/login');
+  } else {
+    return (
+      <p>Something went wrong</p>
+    );
   }
-  return (
-    <p>Something went wrong</p>
-  );
 };
 
-PrivateRoute.propTypes = {
+PublicRoutes.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default PrivateRoute;
+export default PublicRoutes;
