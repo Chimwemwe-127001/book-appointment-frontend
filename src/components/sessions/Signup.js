@@ -1,5 +1,90 @@
-const Signup = () => (
-  <h2>Signup</h2>
-);
+import { useRef, useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+
+const Signup = () => {
+  const [errors, setErrors] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
+  const navigate = useNavigate();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  let errorMsgs = [];
+  // const loading = false;
+
+  useEffect(() => {
+    emailRef.current.focus();
+    if (errorMsgs.length) {
+      setErrors(errorMsgs);
+      errorMsgs = [];
+    }
+  }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setErrors([]);
+    if (!emailRef.current.value || !passwordRef.current.value) {
+      return setErrors(['Please fill out all fields']);
+    }
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setErrors(['The passwords do not match']);
+    }
+
+    // const payload = {
+    //   email: emailRef.current.value,
+    //   password: passwordRef.current.value,
+    // }
+    // const response = dispatch(loginUser());
+    const response = ['Ooops! Something went wrong'];
+    if (errorMsgs.length > 0) {
+      setErrors(response);
+    } else {
+      navigate('/');
+    }
+  }
+  return (
+    <section>
+      <div className="heading">
+        <h1>Sign Up</h1>
+      </div>
+      <div className="errors">
+        {errors.length > 0 && errors.map((error) => (
+          <p key={error} style={{ color: 'red' }}>{error}</p>
+        ))}
+      </div>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <div className="form-group">
+          <label htmlFor="email">
+            Email address
+            <input type="email" id="email" ref={emailRef} />
+          </label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">
+            Password
+            <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} />
+          </label>
+          <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password-confirmation">
+            Password Confirmation
+            <input type={showPasswordConfirmation ? 'text' : 'password'} id="password-confirmation" ref={passwordConfirmRef} />
+          </label>
+          <button type="button" onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}>{showPasswordConfirmation ? 'hide' : 'show'}</button>
+        </div>
+        <div className="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      <div>
+        <p>
+          Already have an account?
+          <Link to="/login">Login</Link>
+        </p>
+      </div>
+    </section>
+  );
+}
 
 export default Signup;

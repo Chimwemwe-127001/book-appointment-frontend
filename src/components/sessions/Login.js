@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [errors, setErrors] = useState([]);
@@ -40,6 +40,9 @@ const Login = () => {
   }
   return (
     <section>
+      <div className="header">
+        <h1>Login</h1>
+      </div>
       <div className="errors">
         {errors.length > 0 && errors.map((error) => (
           <p key={error} style={{ color: 'red' }}>{error}</p>
@@ -63,6 +66,12 @@ const Login = () => {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <div>
+        <p>
+          Don&apos;t have an account yet?
+          <Link to="/signup">Sign up</Link>
+        </p>
+      </div>
     </section>
   );
 };
