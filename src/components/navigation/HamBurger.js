@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
-import logo from '../assets/images/logo.png';
-import twitter from '../assets/images/twitter-icon.png';
-import facebook from '../assets/images/facebook-icon.png';
-import linkedin from '../assets/images/linkedin-icon.png';
-import github from '../assets/images/github-icon.png';
+import logo from '../../assets/images/logo.png';
+import twitter from '../../assets/images/twitter-icon.png';
+import facebook from '../../assets/images/facebook-icon.png';
+import linkedin from '../../assets/images/linkedin-icon.png';
+import github from '../../assets/images/github-icon.png';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -28,7 +28,7 @@ const social = [
 const HamBurger = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
-    <header className={`flex flex-col px-8  ${mobileMenu ? 'h-screen header' : 'h-fit'} fixed top-0 w-screen shadow-xl md:hidden`}>
+    <header className={`flex flex-col px-8 bg-slate-50 ${mobileMenu ? 'h-screen header' : 'h-fit'} fixed top-0 w-screen shadow-xl lg:hidden`}>
       <a href="/" className="text-lg text-slate-50"><img src={logo} className={`w-24 ${mobileMenu ? 'hidden' : 'block'}`} alt="logo" /></a>
       <nav>
         <div className="text-slate-50 mobile-btns">
