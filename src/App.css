@@ -59,13 +59,15 @@
 }
 
 /* Reserve Form */
-.reserveContainer{
-  background-color: #84cc16 ;
-  background: linear-gradient(to right, #83cc16e5 , #83cc16b6 ), 
-  url('./assets/images/reserveformdoctor.jpg') no-repeat center center; background-size: cover;
+.reserveContainer {
+  background-color: #84cc16;
+  background:
+    linear-gradient(to right, #83cc16e5, #83cc16b6),
+    url('./assets/images/reserveformdoctor.jpg') no-repeat center center;
+  background-size: cover;
 }
 
-.reserveFormHeading{
+.reserveFormHeading {
   padding-bottom: 15px;
   border-bottom-style: solid;
   border-bottom-width: 3.1px;

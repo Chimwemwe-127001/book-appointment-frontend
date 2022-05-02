@@ -21,19 +21,27 @@ const ReserveForm = () => (
         <p className="text-sm mt-4">
           We have different doctors from different parts of the world.
           <br />
-          If you wish to find out if we have a doctor in your area, please use the selector below
+          If you wish to find out if we have a doctor who is available
+          in your city, please use the selector below
         </p>
       </div>
       <div className="mt-5 flex justify-center">
         <form action="/#">
-          <select name="cities" id="cities">
+          <input type="text" value="username" className="mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
+          <select name="cities" id="cities" className="p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
             <option value="Nairobi">Nairobi</option>
             <option value="Delhi">Delhi</option>
             <option value="Abuja">Abuja</option>
             <option value="Lusaka">Lusaka</option>
           </select>
+          <select name="availableDoctors" id="availableDoctors" className="ml-5 mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
+            <option value="Ranjeet"> Ranjeet1 </option>
+            <option value="Ranjeet"> Ranjeet2 </option>
+            <option value="Ranjeet"> Ranjeet3 </option>
+          </select>
+          <input type="date" value="Date" className="mr-10 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
           <br />
-          <input type="submit" value="Book Now" className="mt-4 text-lime-500" />
+          <input type="submit" value="Book Now" className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3" />
         </form>
       </div>
     </div>
