@@ -26,7 +26,7 @@ const ReserveForm = () => (
         </p>
       </div>
       <div className="mt-5 flex justify-center">
-        <form action="/#">
+        <form action="/#" className="flex flex-col lg:block">
           <input type="text" value="username" className="mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
           <select name="cities" id="cities" className="p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
             <option value="Nairobi">Nairobi</option>
@@ -39,9 +39,11 @@ const ReserveForm = () => (
             <option value="Ranjeet"> Ranjeet2 </option>
             <option value="Ranjeet"> Ranjeet3 </option>
           </select>
-          <input type="date" value="Date" className="mr-10 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
+          <input type="date" value="Date" className="mt-6 lg:mt-0 lg:mr-10 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
           <br />
-          <input type="submit" value="Book Now" className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3" />
+          <div className="flex flex-col items-center lg:grow">
+            <input type="submit" value="Book Now" className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3" />
+          </div>
         </form>
       </div>
     </div>
