@@ -3,7 +3,6 @@ import './App.css';
 import Home from './pages/Home';
 import PersistLogin from './components/sessions/PersistLogin';
 import PrivateRoute from './components/routes/PrivateRoute';
-import DashBoard from './components/sessions/Dashboard';
 import PublicRoute from './components/routes/PublicRoutes';
 import Signup from './components/sessions/Signup';
 import Login from './components/sessions/Login';
@@ -17,7 +16,7 @@ const App = () => (
           path="/"
           element={(
             <PrivateRoute>
-              <DashBoard />
+              <Home />
             </PrivateRoute>
           )}
         />

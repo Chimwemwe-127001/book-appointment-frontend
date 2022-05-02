@@ -5,21 +5,16 @@ import PropTypes from 'prop-types';
 
 // eslint-disable-next-line consistent-return
 const PrivateRoute = ({ children }) => {
-  // const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
-  const loading = false;
+  const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
   const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!accessToken && !loading) {
-      navigate('/login');
-    }
-  }, []);
 
   if (accessToken) {
     return children;
   } if (loading) {
     return <p>Loading...</p>;
+  } if (!accessToken && !loading) {
+    navigate('/login');
   }
   return (
     <p>Something went wrong</p>

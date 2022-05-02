@@ -20,7 +20,7 @@ export const signUpUser = (payload) => async (dispatch) => {
 
 export const refreshAccessToken = (refreshToken) => async (dispatch) => {
   if (!refreshToken) {
-    throw new Error('refreshToken is required');
+    dispatch(refreshTokenFailure('refresh token is required'));
   }
   try {
     const refreshResponse = await requestAccessTokenWithRefreshToken(

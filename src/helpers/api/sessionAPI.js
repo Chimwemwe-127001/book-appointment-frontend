@@ -1,10 +1,11 @@
 import axios from 'axios';
 import instance from './axios';
 
-const LOGIN_URL = '/oauth/token';
+const BASE_URL = 'http://localhost:3000/api/v1';
+const LOGIN_URL = `${BASE_URL}/oauth/token`;
 // const LOGOUT_URL = '/oauth/revoke';
-const SIGNUP_URL = 'http://localhost:3000/api/v1/users';
-const CURRENT_USER_URL = '/users/me';
+const SIGNUP_URL = `${BASE_URL}/users`;
+const CURRENT_USER_URL = `${BASE_URL}/users/me`;
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
@@ -18,7 +19,6 @@ export const registerAction = async (payload) => {
   };
   try {
     const response = await axios.post(SIGNUP_URL, data, instance);
-    console.log(response)
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -33,7 +33,7 @@ export const requestAccessTokenWithRefreshToken = async (refreshToken) => {
     client_secret: CLIENT_SECRET,
   };
   try {
-    const response = await axios.post(LOGIN_URL, data);
+    const response = await axios.post(LOGIN_URL, data, instance);
     return response.data;
   } catch (error) {
     return error.response.data;

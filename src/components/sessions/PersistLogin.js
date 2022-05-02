@@ -5,8 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { refreshAccessToken } from '../../redux/session/thunks/utils';
 
 const PersistLogin = () => {
-  // const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
-  const loading = false;
+  const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
   const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
   const refreshToken = useSelector(({ signUpReducer }) => signUpReducer.refreshToken);
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ const PersistLogin = () => {
 
   return (
     <>
-      {loading ? <p>Loading...</p> : <Outlet />}
+      {loading ? <h1>Loading...</h1> : <Outlet />}
     </>
   );
 };
