@@ -1,7 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
@@ -30,10 +32,10 @@ const Signup = () => {
       return setErrors(['The passwords do not match']);
     }
 
-    // const payload = {
-    //   email: emailRef.current.value,
-    //   password: passwordRef.current.value,
-    // }
+    const payload = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    }
     // const response = dispatch(loginUser());
     const response = ['Ooops! Something went wrong'];
     if (errorMsgs.length > 0) {

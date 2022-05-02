@@ -1,4 +1,5 @@
-import { registerActionSuccess, registerActionFailure } from "../action/sessionActions";
+import { registerActionSuccess, registerActionFailure } from '../action/sessionActions';
+import registerAction from '../../../helpers/api/sessionAPI';
 
 const signUpUser = (payload) => async (dispatch) => {
   try {
@@ -11,3 +12,5 @@ const signUpUser = (payload) => async (dispatch) => {
     dispatch(registerActionFailure(error));
   }
 };
+
+export default signUpUser;

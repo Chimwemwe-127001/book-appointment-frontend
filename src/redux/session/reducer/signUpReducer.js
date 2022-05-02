@@ -1,5 +1,5 @@
 import { getRefreshToken, setRefreshToken, deleteRefreshToken } from '../helpers';
-import { SIGN_UP } from '../action/sessionActions';
+import { SIGN_UP_SUCCESS, SIGN_UP_FAILURE } from '../action/sessionActions';
 
 const initialState = {
   currentUser: {
@@ -8,7 +8,7 @@ const initialState = {
     role: null,
     createdAt: null,
   },
-  errors: false,
+  error: false,
   loading: true,
   errorMsgs: [],
   accessToken: null,
@@ -19,18 +19,27 @@ const initialState = {
 
 const signUpReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case SIGN_UP:
+    case SIGN_UP_SUCCESS:
+      setRefreshToken(payload.refresh_token);
       return {
         ...state,
         currentUser: {
           id: payload.id,
-          email: payload.current_user.email,
-          role: payload.current_user.role,
-          createdAt: payload.current_user.created_at,
+          email: payload.email,
+          role: payload.role,
+          createdAt: payload.created_at,
         },
         loading: false,
         accessToken: payload.access_token,
+        refreshToken: payload.refresh_token,
         expiresIn: payload.expires_in,
+      };
+    case SIGN_UP_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        errorMsgs: payload.errors,
       };
     default:
       return state;
