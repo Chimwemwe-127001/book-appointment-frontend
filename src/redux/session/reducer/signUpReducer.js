@@ -1,5 +1,7 @@
 import { getRefreshToken, setRefreshToken, deleteRefreshToken } from '../helpers';
-import { SIGN_UP_SUCCESS, SIGN_UP_FAILURE } from '../action/sessionActions';
+import {
+  SIGN_UP_SUCCESS, SIGN_UP_FAILURE, REFRESH_ACCESS_TOKEN_SUCCESS, REFRESH_ACCESS_TOKEN_FAILURE,
+} from '../action/sessionActions';
 
 const initialState = {
   currentUser: {
@@ -10,7 +12,7 @@ const initialState = {
   },
   error: false,
   loading: true,
-  errorMsgs: [],
+  errorMsgs: '',
   accessToken: null,
   refreshToken: getRefreshToken(),
   expiresIn: null,
@@ -39,7 +41,28 @@ const signUpReducer = (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
-        errorMsgs: payload.errors,
+        errorMsgs: payload.error,
+      };
+    case REFRESH_ACCESS_TOKEN_SUCCESS:
+      setRefreshToken(payload.refresh_token);
+      return {
+        ...state,
+        currentUser: {
+          id: payload.id,
+          email: payload.email,
+          role: payload.role,
+          createdAt: payload.created_at,
+        },
+        loading: false,
+        accessToken: payload.access_token,
+        refreshToken: payload.refresh_token,
+        expiresIn: payload.expires_in,
+      };
+    case REFRESH_ACCESS_TOKEN_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: true,
       };
     default:
       return state;

@@ -1,24 +1,54 @@
 import axios from 'axios';
+import instance from './axios';
 
 const LOGIN_URL = '/oauth/token';
-const LOGOUT_URL = '/oauth/revoke';
-const SIGNUP_URL = '/users';
+// const LOGOUT_URL = '/oauth/revoke';
+const SIGNUP_URL = 'http://localhost:3000/api/v1/users';
 const CURRENT_USER_URL = '/users/me';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
-const registerAction = async ({ email, password }) => {
+export const registerAction = async (payload) => {
   const data = {
-    email,
-    password,
+    email: payload.email,
+    password: payload.password,
+    client_id: CLIENT_ID,
   };
   try {
-    const response = await axios.post(SIGNUP_URL, data);
+    const response = await axios.post(SIGNUP_URL, data, instance);
+    console.log(response)
     return response.data;
   } catch (error) {
     return error.response.data;
   }
 };
 
-export default registerAction;
+export const requestAccessTokenWithRefreshToken = async (refreshToken) => {
+  const data = {
+    grant_type: 'refresh_token',
+    refresh_token: refreshToken,
+    client_id: CLIENT_ID,
+    client_secret: CLIENT_SECRET,
+  };
+  try {
+    const response = await axios.post(LOGIN_URL, data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+export const getCurrentUser = async (accessToken) => {
+  try {
+    const response = await axios.get(CURRENT_USER_URL, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};

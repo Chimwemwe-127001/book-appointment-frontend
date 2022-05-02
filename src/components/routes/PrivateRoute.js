@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // eslint-disable-next-line consistent-return
 const PrivateRoute = ({ children }) => {
+  // const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
   const loading = false;
-  const accessToken = false;
+  const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
   const navigate = useNavigate();
 
   useEffect(() => {

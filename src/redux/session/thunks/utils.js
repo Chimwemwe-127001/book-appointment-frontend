@@ -1,16 +1,44 @@
-import { registerActionSuccess, registerActionFailure } from '../action/sessionActions';
-import registerAction from '../../../helpers/api/sessionAPI';
+import {
+  registerActionSuccess,
+  registerActionFailure,
+  refreshTokenSuccess,
+  refreshTokenFailure,
+} from '../action/sessionActions';
+import { registerAction, requestAccessTokenWithRefreshToken, getCurrentUser } from '../../../helpers/api/sessionAPI';
 
-const signUpUser = (payload) => async (dispatch) => {
+export const signUpUser = (payload) => async (dispatch) => {
   try {
     const response = await registerAction(payload);
     if (response.error) {
-      throw response.error;
+      dispatch(registerActionFailure(response));
     }
     dispatch(registerActionSuccess(response));
   } catch (error) {
-    dispatch(registerActionFailure(error));
+    throw new Error(error);
   }
 };
 
-export default signUpUser;
+export const refreshAccessToken = (refreshToken) => async (dispatch) => {
+  if (!refreshToken) {
+    throw new Error('refreshToken is required');
+  }
+  try {
+    const refreshResponse = await requestAccessTokenWithRefreshToken(
+      refreshToken,
+    );
+    if (refreshResponse.error) {
+      dispatch(refreshTokenFailure(refreshResponse.data));
+    }
+    const userResponse = await getCurrentUser(refreshResponse.access_token);
+    if (userResponse.error) {
+      dispatch(refreshTokenFailure(userResponse.data));
+    }
+    const response = {
+      ...refreshResponse,
+      ...userResponse,
+    };
+    dispatch(refreshTokenSuccess(response));
+  } catch (error) {
+    throw new Error(error);
+  }
+};

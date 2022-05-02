@@ -1,17 +1,22 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { refreshAccessToken } from '../../redux/session/thunks/utils';
 
 const PersistLogin = () => {
+  // const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
   const loading = false;
-  const accessToken = false;
-  const refreshToken = null;
+  const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
+  const refreshToken = useSelector(({ signUpReducer }) => signUpReducer.refreshToken);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const verifyRefreshToken = () => {
       try {
-        console.log('Verifying Refresh Token');
+        dispatch(refreshAccessToken(refreshToken));
       } catch (error) {
-        console.log('Could not verify Refresh token');
+        throw new Error(error);
       }
     };
 
