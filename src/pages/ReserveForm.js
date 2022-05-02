@@ -15,10 +15,15 @@ const ReserveForm = () => (
       <div>
         <form action="#">
           <input type="text" name="username"/>
+          {/* The selected item should appear in the background should user click on reserve button */}
+          {/* When user selects reserve for from the nav. bar I was thinking we should have a drop down of all doctors in a given city so that user should select doctor of their preference */}
           <button className="text-white hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5"> London <FaAngleDown />
             <div>
               <ul>
                 <li> Nairobi </li>
+                <li> Abuja </li>
+                <li> Delhi </li>
+                <li> Mumbai </li>
               </ul>
             </div> 
           </button>
