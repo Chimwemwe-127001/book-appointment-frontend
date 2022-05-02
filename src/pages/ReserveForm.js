@@ -1,11 +1,18 @@
 import { FaBars, FaSistrix,FaAngleDown } from "react-icons/fa"
 
 const ReserveForm = () => (
-  <div>
-    <div className="flex justify-between">
-      <button> <FaBars/> </button>
-      <button> <FaSistrix/> </button>
+  <div className="background-color: rgb(144,189,0)">
+    <div className="m-3 flex justify-between">
+      <button className="text-white"> <FaBars/> </button>
+      <button className="text-white"> <FaSistrix/> </button>
     </div>
-    <button></button>
+    
+    <div className="flex items-center">
+      <h4 className="underline"> <span className="mb-2"> Book Appointment </span> </h4>
+      <p> We have different doctors from different parts of the world. 
+        <span>If you wish to find out if we have a doctor in your area, please use the selector below </span>
+      </p>
+      <button></button>
+    </div>
   </div> 
 )
