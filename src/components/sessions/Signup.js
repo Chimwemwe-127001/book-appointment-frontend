@@ -14,7 +14,6 @@ const Signup = () => {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const errorMsgs = useSelector(({ signUpReducer }) => signUpReducer.errorMsgs);
-  // const loading = false;
 
   useEffect(() => {
     emailRef.current.focus();
@@ -53,7 +52,7 @@ const Signup = () => {
         <h1>Sign Up</h1>
       </div>
       <div className="errors">
-          <p style={{ color: 'red' }}>{error}</p>
+        <p style={{ color: 'red' }}>{error}</p>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form-group">

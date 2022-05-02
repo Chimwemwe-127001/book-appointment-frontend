@@ -58,6 +58,7 @@ const SideBar = () => (
       </div>
       <p className="text-gray-700 font-bold mt-2">© 2022</p>
     </div>
+    <button type="button">Button</button>
   </div>
 );
 

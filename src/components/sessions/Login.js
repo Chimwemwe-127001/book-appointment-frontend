@@ -1,52 +1,53 @@
+/* eslint-disable consistent-return */
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../../redux/session/thunks/utils';
 
-const Login = () => {
-  const [errors, setErrors] = useState([]);
+const Signup = () => {
+  const dispatch = useDispatch();
+  const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
-  let errorMsgs = [];
-  // const loading = false;
+  const errorMsgs = useSelector(({ signUpReducer }) => signUpReducer.errorMsgs);
 
   useEffect(() => {
     emailRef.current.focus();
-    if (errorMsgs.length) {
-      setErrors(errorMsgs);
-      errorMsgs = [];
+    if (errorMsgs) {
+      setError(errorMsgs);
     }
   }, []);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
+    setError('');
     if (!emailRef.current.value || !passwordRef.current.value) {
-      setErrors(['Please fill out all fields']);
-      return;
+      return setError('Please fill out all fields');
     }
 
-    // const payload = {
-    //   email: emailRef.current.value,
-    //   password: passwordRef.current.value,
-    // }
-    // const response = dispatch(loginUser());
-    const response = ['Ooops! Something went wrong'];
-    if (errorMsgs.length > 0) {
-      setErrors(response);
+    const payload = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+
+    dispatch(loginUser(payload));
+
+    if (errorMsgs) {
+      setError(errorMsgs);
     } else {
       navigate('/');
     }
-  }
+  };
+
   return (
     <section>
-      <div className="header">
+      <div className="heading">
         <h1>Login</h1>
       </div>
       <div className="errors">
-        {errors.length > 0 && errors.map((error) => (
-          <p key={error} style={{ color: 'red' }}>{error}</p>
-        ))}
+        <p style={{ color: 'red' }}>{error}</p>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form-group">
@@ -68,12 +69,12 @@ const Login = () => {
       </form>
       <div>
         <p>
-          Don&apos;t have an account yet?
-          <Link to="/signup">Sign up</Link>
+          Already have an account?
+          <Link to="/login">Login</Link>
         </p>
       </div>
     </section>
   );
 };
 
-export default Login;
+export default Signup;
