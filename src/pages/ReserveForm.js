@@ -33,3 +33,5 @@ const ReserveForm = () => (
     </div>
   </div> 
 )
+
+export default ReserveForm;
