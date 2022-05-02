@@ -13,13 +13,16 @@ const ReserveForm = () => (
         <span>If you wish to find out if we have a doctor in your area, please use the selector below </span>
       </p>
       <div>
-        <button className="text-white hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5"> London <FaAngleDown />
-          <div>
-            <ul>
-              <li> Nairobi </li>
-            </ul>
-          </div> 
-        </button>
+        <form action="#">
+          <input type="text" name="username"/>
+          <button className="text-white hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5"> London <FaAngleDown />
+            <div>
+              <ul>
+                <li> Nairobi </li>
+              </ul>
+            </div> 
+          </button>
+        </form>
       </div>
     </div>
   </div> 
