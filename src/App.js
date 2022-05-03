@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Home from './pages/Home';
 import PersistLogin from './components/sessions/PersistLogin';
 import PrivateRoute from './components/routes/PrivateRoute';
@@ -9,7 +9,7 @@ import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
 
 const App = () => (
-  <div className="text-sky-500 d-flex">
+  <div className="text-sky-500">
     <Routes>
       <Route element={<PersistLogin />}>
         <Route

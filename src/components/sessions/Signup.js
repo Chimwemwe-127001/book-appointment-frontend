@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable consistent-return */
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -48,45 +49,47 @@ const Signup = () => {
 
   return (
     <section className="session-form">
-      <div className="heading">
-        <h1>Sign Up</h1>
-        <hr />
-      </div>
-      <div className="errors">
-        <p style={{ color: 'red' }}>{error}</p>
-      </div>
-      <div className="form-container">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="form-group">
-            <label htmlFor="email">
-              Email address
-              <input type="email" id="email" ref={emailRef} />
-            </label>
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">
-              Password
-              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} />
-            </label>
-            <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
-          </div>
-          <div className="form-group">
-            <label htmlFor="password-confirmation">
-              Password Confirmation
-              <input type={showPasswordConfirmation ? 'text' : 'password'} id="password-confirmation" ref={passwordConfirmRef} />
-            </label>
-            <button type="button" onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}>{showPasswordConfirmation ? 'hide' : 'show'}</button>
-          </div>
-          <div className="form-group">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-      <div>
-        <p>
-          Already have an account?
-          <Link to="/login">Login</Link>
-        </p>
+      <div className="session-container">
+        <div className="heading">
+          <h1>Sign Up</h1>
+          <hr />
+        </div>
+        <div className="errors">
+          <p style={{ color: 'red' }}>{error}</p>
+        </div>
+        <div className="form-container">
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div className="form-group">
+              <input type="email" id="email" ref={emailRef} className="input_field" />
+              <label htmlFor="email" className="input_label">
+                Email address
+              </label>
+            </div>
+            <div className="form-group">
+              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} className="input_field" />
+              <label htmlFor="password" className="input_label">
+                Password
+              </label>
+              <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
+            </div>
+            <div className="form-group">
+              <input type={showPasswordConfirmation ? 'text' : 'password'} id="password-confirmation" ref={passwordConfirmRef} className="input_field" />
+              <label htmlFor="password-confirmation" className="input_label">
+                Password Confirmation
+              </label>
+              <button type="button" onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}>{showPasswordConfirmation ? 'hide' : 'show'}</button>
+            </div>
+            <div className="submit-btn">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div>
+          <p>
+            Already have an account?
+            <Link to="/login">Login</Link>
+          </p>
+        </div>
       </div>
     </section>
   );
