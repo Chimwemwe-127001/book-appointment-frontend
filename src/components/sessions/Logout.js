@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { logOutUser } from '../../redux/session/thunks/utils';
 
 const Logout = () => {
   const navigate = useNavigate();

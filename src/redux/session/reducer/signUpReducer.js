@@ -78,6 +78,7 @@ const signUpReducer = (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
+        errorMsgs: payload.error,
       };
     case REFRESH_ACCESS_TOKEN_SUCCESS:
       setRefreshToken(payload.refresh_token);

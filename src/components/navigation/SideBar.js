@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
@@ -24,7 +25,14 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const SideBar = () => (
+const SideBar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate('/logout');
+  };
+
+return (
   <div className="flex flex-col w-64">
     <div className="flex-1 flex flex-col pt-3 pb-4 overflow-y-auto">
       <div className="flex items-center flex-shrink-0 px-4">
@@ -58,8 +66,8 @@ const SideBar = () => (
       </div>
       <p className="text-gray-700 font-bold mt-2">© 2022</p>
     </div>
-    <button type="button">Logout</button>
+    <button type="button" onClick={handleLogout}>Logout</button>
   </div>
-);
+)};
 
 export default SideBar;
