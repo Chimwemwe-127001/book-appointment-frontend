@@ -25,6 +25,22 @@ export const registerAction = async (payload) => {
   }
 };
 
+export const loginAction = async ({ email, password }) => {
+  const data = {
+    grant_type: 'password',
+    email,
+    password,
+    client_id: CLIENT_ID,
+    client_secret: CLIENT_SECRET,
+  };
+  try {
+    const response = await axios.post(LOGIN_URL, data, instance);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
 export const requestAccessTokenWithRefreshToken = async (refreshToken) => {
   const data = {
     grant_type: 'refresh_token',

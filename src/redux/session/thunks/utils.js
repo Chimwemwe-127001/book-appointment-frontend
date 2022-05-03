@@ -3,16 +3,41 @@ import {
   registerActionFailure,
   refreshTokenSuccess,
   refreshTokenFailure,
+  loginActionSuccess,
+  loginActionFailure,
 } from '../action/sessionActions';
-import { registerAction, requestAccessTokenWithRefreshToken, getCurrentUser } from '../../../helpers/api/sessionAPI';
+import {
+  registerAction, loginAction, requestAccessTokenWithRefreshToken, getCurrentUser,
+} from '../../../helpers/api/sessionAPI';
 
 export const signUpUser = (payload) => async (dispatch) => {
   try {
     const response = await registerAction(payload);
     if (response.error) {
-      dispatch(registerActionFailure(response));
+      return dispatch(registerActionFailure(response));
     }
     dispatch(registerActionSuccess(response));
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const loginUser = (payload) => async (dispatch) => {
+  try {
+    const loginResponse = await loginAction(payload);
+
+    if (loginResponse.error) {
+      return dispatch(loginActionFailure({ error: 'Invalid Email/Password. Please try again' }));
+    }
+    const userResponse = await getCurrentUser(loginResponse.access_token);
+    if (userResponse.error) {
+      return dispatch(loginActionFailure(userResponse.data));
+    }
+    const response = {
+      ...loginResponse,
+      ...userResponse,
+    };
+    dispatch(loginActionSuccess(response));
   } catch (error) {
     throw new Error(error);
   }
@@ -27,11 +52,11 @@ export const refreshAccessToken = (refreshToken) => async (dispatch) => {
       refreshToken,
     );
     if (refreshResponse.error) {
-      dispatch(refreshTokenFailure(refreshResponse.data));
+      return dispatch(refreshTokenFailure(refreshResponse.data));
     }
     const userResponse = await getCurrentUser(refreshResponse.access_token);
     if (userResponse.error) {
-      dispatch(refreshTokenFailure(userResponse.data));
+      return dispatch(refreshTokenFailure(userResponse.data));
     }
     const response = {
       ...refreshResponse,

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -8,12 +9,16 @@ const PrivateRoute = ({ children }) => {
   const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!accessToken && !loading) {
+      navigate('/login');
+    }
+  }, []);
+
   if (accessToken) {
     return children;
   } if (loading) {
     return <p>Loading...</p>;
-  } if (!accessToken && !loading) {
-    navigate('/login');
   }
   return (
     <p>Something went wrong</p>

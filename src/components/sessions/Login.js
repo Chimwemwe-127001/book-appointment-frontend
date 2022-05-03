@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/session/thunks/utils';
 
-const Signup = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -69,12 +69,12 @@ const Signup = () => {
       </form>
       <div>
         <p>
-          Already have an account?
-          <Link to="/login">Login</Link>
+          Don&apos;t have an account yet?
+          <Link to="/signup">Sign Up</Link>
         </p>
       </div>
     </section>
   );
 };
 
-export default Signup;
+export default Login;

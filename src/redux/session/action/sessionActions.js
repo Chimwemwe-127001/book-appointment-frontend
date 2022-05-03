@@ -4,6 +4,8 @@ export const REFRESH_ACCESS_TOKEN_SUCCESS = 'sessions/REFRESH_ACCESS_TOKEN_SUCCE
 export const REFRESH_ACCESS_TOKEN_FAILURE = 'sessions/REFRESH_ACCESS_TOKEN_FAILURE';
 export const LOGIN_SUCCESS = 'sessions/LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'sessions/LOGIN_FAILURE';
+export const LOGOUT_SUCCESS = 'sessions/LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'sessions/LOGOUT_FAILURE';
 
 export const registerActionSuccess = (payload) => ({
   type: SIGN_UP_SUCCESS,
@@ -32,5 +34,15 @@ export const loginActionSuccess = (payload) => ({
 
 export const loginActionFailure = (payload) => ({
   type: LOGIN_FAILURE,
+  payload,
+});
+
+export const logoutActionSuccess = (payload) => ({
+  type: LOGOUT_SUCCESS,
+  payload,
+});
+
+export const logoutActionFailure = (payload) => ({
+  type: LOGOUT_FAILURE,
   payload,
 });

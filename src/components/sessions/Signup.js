@@ -6,13 +6,13 @@ import { signUpUser } from '../../redux/session/thunks/utils';
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const [error, setError] = useState('');
   const errorMsgs = useSelector(({ signUpReducer }) => signUpReducer.errorMsgs);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Signup = () => {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     if (!emailRef.current.value || !passwordRef.current.value) {
