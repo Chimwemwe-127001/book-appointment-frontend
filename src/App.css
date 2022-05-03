@@ -46,6 +46,25 @@
   background-color: rgba(128, 128, 128, 0.553);
 }
 
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5% auto;
+  text-align: center;
+}
+
+.session-form > .heading {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.session-form > .heading > hr {
+  
+}
+
 @media screen and (min-width: 1024px) {
   .previous-btn {
     top: 330px;
