@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable consistent-return */
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { loginUser } from '../../redux/session/thunks/utils';
 
 const Login = () => {
@@ -52,24 +54,24 @@ const Login = () => {
           <p style={{ color: 'red' }}>{error}</p>
         </div>
         <div className="form-container">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="form-group">
-            <input type="email" id="email" ref={emailRef} className="input_field" required />
-            <label htmlFor="email" className="input_label">
-              Email address
-            </label>
-          </div>
-          <div className="form-group">
-            <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} className="input_field" required />
-            <label htmlFor="password" className="input_label">
-              Password
-            </label>
-            <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
-          </div>
-          <div className="submit-btn">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div className="form-group">
+              <input type="email" id="email" ref={emailRef} className="input_field" required />
+              <label htmlFor="email" className="input_label">
+                Email address
+              </label>
+            </div>
+            <div className="form-group">
+              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} className="input_field" required />
+              <label htmlFor="password" className="input_label">
+                Password
+              </label>
+              <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}</button>
+            </div>
+            <div className="submit-btn">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
         </div>
         <div>
           <p>
