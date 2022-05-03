@@ -51,11 +51,12 @@ const Login = () => {
         <div className="errors">
           <p style={{ color: 'red' }}>{error}</p>
         </div>
+        <div className="form-container">
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="form-group">
-            <label htmlFor="email">
+            <input type="email" id="email" ref={emailRef} className="input_field" required />
+            <label htmlFor="email" className="input_label">
               Email address
-              <input type="email" id="email" ref={emailRef} />
             </label>
           </div>
           <div className="form-group">
@@ -69,6 +70,7 @@ const Login = () => {
             <button type="submit">Submit</button>
           </div>
         </form>
+        </div>
         <div>
           <p>
             Don&apos;t have an account yet?
