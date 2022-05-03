@@ -2,6 +2,7 @@
 /* eslint-disable consistent-return */
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpUser } from '../../redux/session/thunks/utils';
 
@@ -70,14 +71,16 @@ const Signup = () => {
               <label htmlFor="password" className="input_label">
                 Password
               </label>
-              <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
+              <button type="button" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEye /> : <FaEyeSlash /> }
+              </button>
             </div>
             <div className="form-group">
               <input type={showPasswordConfirmation ? 'text' : 'password'} id="password-confirmation" ref={passwordConfirmRef} className="input_field" required />
               <label htmlFor="password-confirmation" className="input_label">
                 Password Confirmation
               </label>
-              <button type="button" onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}>{showPasswordConfirmation ? 'hide' : 'show'}</button>
+              <button type="button" onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}>{showPasswordConfirmation ? <FaEye /> : <FaEyeSlash />}</button>
             </div>
             <div className="submit-btn">
               <button type="submit">Submit</button>
