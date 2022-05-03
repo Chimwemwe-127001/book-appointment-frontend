@@ -1,10 +1,10 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
+import Modal from '../sessions/Modal';
 
 const navigation = [
   { name: 'Doctors', href: '#', current: true },
@@ -26,10 +26,10 @@ function classNames(...classes) {
 }
 
 const SideBar = () => {
-  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
-  const handleLogout = () => {
-    navigate('/logout');
+  const handleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
@@ -66,7 +66,8 @@ const SideBar = () => {
         </div>
         <p className="text-gray-700 font-bold mt-2">© 2022</p>
       </div>
-      <button type="button" onClick={handleLogout}>Logout</button>
+      <button type="button" onClick={handleModal}>Logout</button>
+      { showModal && <Modal handleModal={handleModal} />}
     </div>
   );
 };

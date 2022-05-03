@@ -194,6 +194,31 @@ a {
   transform: translateY(-25px);
 }
 
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.514); 
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+
+  .modal-content {
+    position: fixed;
+    top: 60px;
+    left: 28%;
+    right: 22%;
+    background-color: #fefefe;
+    width: 40%;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .previous-btn {
     top: 330px;
