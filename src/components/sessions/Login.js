@@ -60,9 +60,9 @@ const Login = () => {
             </label>
           </div>
           <div className="form-group">
-            <label htmlFor="password">
+            <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} className="input_field" required />
+            <label htmlFor="password" className="input_label">
               Password
-              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} />
             </label>
             <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
           </div>
