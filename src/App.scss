@@ -190,6 +190,15 @@ a {
         }
       }
     }
+  @media screen and (max-width: 854px) {
+    width: 60%
+  }
+  @media screen and (max-width: 563px) {
+    width: 80%
+  }
+  @media screen and (max-width: 422px) {
+    width: 93%
+  }
 }
 
 .input_field:focus + .input_label, .input_field:valid + .input_label {
