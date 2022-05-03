@@ -105,8 +105,8 @@ a {
       text-align: center;
 
         > hr {
-          width: 13%;
-          color: red;
+          width: 15%;
+          color: #a07404;
           height: 3px;
         }
     }
@@ -152,7 +152,7 @@ a {
 
         .submit-btn {
           button {
-            background: linear-gradient(to right, #83cc16cc, #83cc16c2);
+            background: #FEB500;
             color: #fff;
             font-size: 20px;
             padding: 15px 40px;
@@ -163,7 +163,7 @@ a {
             width: 100%;
 
             &:hover {
-              background-color: #1b2b03;
+              background-color: #ca9100;
             }
           }
         }

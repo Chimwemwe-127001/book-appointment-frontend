@@ -42,36 +42,39 @@ const Login = () => {
   };
 
   return (
-    <section>
-      <div className="heading">
-        <h1>Login</h1>
-      </div>
-      <div className="errors">
-        <p style={{ color: 'red' }}>{error}</p>
-      </div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="form-group">
-          <label htmlFor="email">
-            Email address
-            <input type="email" id="email" ref={emailRef} />
-          </label>
+    <section className="session-form">
+      <div className="session-container">
+        <div className="heading">
+          <h1>Login</h1>
+          <hr />
         </div>
-        <div className="form-group">
-          <label htmlFor="password">
-            Password
-            <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} />
-          </label>
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
+        <div className="errors">
+          <p style={{ color: 'red' }}>{error}</p>
         </div>
-        <div className="form-group">
-          <button type="submit">Submit</button>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="form-group">
+            <label htmlFor="email">
+              Email address
+              <input type="email" id="email" ref={emailRef} />
+            </label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">
+              Password
+              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} />
+            </label>
+            <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
+          </div>
+          <div className="form-group">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        <div>
+          <p>
+            Don&apos;t have an account yet?
+            <Link to="/signup">Sign Up</Link>
+          </p>
         </div>
-      </form>
-      <div>
-        <p>
-          Don&apos;t have an account yet?
-          <Link to="/signup">Sign Up</Link>
-        </p>
       </div>
     </section>
   );
