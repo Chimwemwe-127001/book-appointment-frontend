@@ -66,6 +66,19 @@ const signUpReducer = (state = initialState, { type, payload }) => {
         error: true,
         errorMsgs: payload.error,
       };
+    case LOGOUT_SUCCESS:
+      deleteRefreshToken();
+      return {
+        ...state,
+        ...initialState,
+        loading: false,
+      };
+    case LOGOUT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+      };
     case REFRESH_ACCESS_TOKEN_SUCCESS:
       setRefreshToken(payload.refresh_token);
       return {
