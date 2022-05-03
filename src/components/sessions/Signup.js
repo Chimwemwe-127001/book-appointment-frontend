@@ -60,20 +60,20 @@ const Signup = () => {
         <div className="form-container">
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="form-group">
-              <input type="email" id="email" ref={emailRef} className="input_field" />
+              <input type="email" id="email" ref={emailRef} className="input_field" required />
               <label htmlFor="email" className="input_label">
                 Email address
               </label>
             </div>
             <div className="form-group">
-              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} className="input_field" />
+              <input type={showPassword ? 'text' : 'password'} id="password" ref={passwordRef} className="input_field" required />
               <label htmlFor="password" className="input_label">
                 Password
               </label>
               <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
             </div>
             <div className="form-group">
-              <input type={showPasswordConfirmation ? 'text' : 'password'} id="password-confirmation" ref={passwordConfirmRef} className="input_field" />
+              <input type={showPasswordConfirmation ? 'text' : 'password'} id="password-confirmation" ref={passwordConfirmRef} className="input_field" required />
               <label htmlFor="password-confirmation" className="input_label">
                 Password Confirmation
               </label>

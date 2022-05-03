@@ -122,7 +122,7 @@ a {
             text-align: left;
             position: relative;
             margin-bottom: 50px;
-            border-bottom: solid 2px red;
+            border-bottom: solid 2px #44522e;
 
               button {
                position: absolute;
@@ -131,11 +131,14 @@ a {
               }
 
               input {
-
-                &:focus {
+                background: #fff;
+                
+                &:focus, &:valid {
                   outline: none;
                   border: none;
                   line-height: 0;
+                  padding: 7px;
+                  background: #fff;
                 }
               }
 
@@ -167,7 +170,7 @@ a {
     }
 }
 
-.input_field:focus + .input_label {
+.input_field:focus + .input_label, .input_field:valid + .input_label {
   -moz-transform: translateY(-25px);
   -ms-transform: translateY(-25px);
   -webkit-transform: translateY(-25px);
