@@ -76,7 +76,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right, #83cc16cc, #83cc16c2), url('./assets/images/header-mobile-bg.png');
+  background-image: linear-gradient(to right, #99e428de, #a7f334a2), url('./assets/images/header-mobile-bg.png');
   background-size: cover;
   height: 100vh;
 }
@@ -132,6 +132,7 @@ a {
 
               input {
                 background: #fff;
+                color: rgb(116, 114, 114);
                 
                 &:focus, &:valid {
                   outline: none;
@@ -165,6 +166,21 @@ a {
               background-color: #1b2b03;
             }
           }
+        }
+      }
+    }
+
+    > div:last-of-type {
+      margin-top: 20px;
+
+      a {
+        color: #44522e;
+        margin-left: 10px;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          color: #1b2b03;
         }
       }
     }
