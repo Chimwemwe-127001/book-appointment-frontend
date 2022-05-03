@@ -58,6 +58,7 @@ const SideBar = () => {
           </div>
         </nav>
       </div>
+      <button type="button" onClick={handleModal} className="logout-btn">Logout</button>
       <div className="flex-shrink-0 flex-200 p-4">
         <div className="flex gap-2">
           {social.map((item) => (
@@ -66,7 +67,6 @@ const SideBar = () => {
         </div>
         <p className="text-gray-700 font-bold mt-2">© 2022</p>
       </div>
-      <button type="button" onClick={handleModal}>Logout</button>
       { showModal && <Modal handleModal={handleModal} />}
     </div>
   );

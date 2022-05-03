@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color-1: #84cc16;
+  --accent-color-1: #FEB500;
+}
+
 /* Global styles */
 html {
   overflow-x: hidden;
@@ -204,8 +209,7 @@ a {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.514); 
-  animation-name: fadeIn;
-  animation-duration: 0.4s;
+  animation-name: fadeIn 0.5s ease-out;
 
   .modal-content {
     position: fixed;
@@ -214,9 +218,63 @@ a {
     right: 22%;
     background-color: #fefefe;
     width: 40%;
-    animation-name: slideIn;
-    animation-duration: 0.4s
+    animation: slideIn 0.7s ease-out;
+    padding: 20px;
+
+    > h3 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    > div {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        border-radius: 5px;
+        margin: 0 20px;
+        font-size: 14px;
+
+        &:first-of-type {
+          border: solid 2px var(--accent-color-1);
+          padding: 8px;
+          color: rgb(110, 108, 108);
+        }
+
+        &:last-of-type {
+          background:red;
+          padding: 10px;
+          color: #fff;
+        }
+      }
+    }
   }
+}
+
+.logout-btn {
+  color: red;
+  border: solid 2px red;
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+
+  &:hover {
+    background: red;
+    color: #fff
+  }
+}
+
+@keyframes slideIn {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
 }
 
 @media screen and (min-width: 1024px) {
