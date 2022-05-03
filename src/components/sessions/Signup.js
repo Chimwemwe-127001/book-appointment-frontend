@@ -17,7 +17,7 @@ const Signup = () => {
 
   useEffect(() => {
     emailRef.current.focus();
-    if (errorMsgs) {
+    if (errorMsgs !== 'Invalid Email/Password. Please try again') {
       setError(errorMsgs);
     }
   }, []);
@@ -39,7 +39,7 @@ const Signup = () => {
 
     await dispatch(signUpUser(payload));
 
-    if (errorMsgs) {
+    if (errorMsgs !== 'Invalid Email/Password. Please try again') {
       setError(errorMsgs);
     } else {
       navigate('/');

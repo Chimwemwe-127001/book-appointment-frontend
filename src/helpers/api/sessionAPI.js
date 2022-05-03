@@ -3,7 +3,7 @@ import instance from './axios';
 
 const BASE_URL = 'http://localhost:3000/api/v1';
 const LOGIN_URL = `${BASE_URL}/oauth/token`;
-// const LOGOUT_URL = '/oauth/revoke';
+const LOGOUT_URL = `${BASE_URL}/oauth/revoke`;
 const SIGNUP_URL = `${BASE_URL}/users`;
 const CURRENT_USER_URL = `${BASE_URL}/users/me`;
 
@@ -35,6 +35,20 @@ export const loginAction = async ({ email, password }) => {
   };
   try {
     const response = await axios.post(LOGIN_URL, data, instance);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+export const logOutAction = async (token) => {
+  const data = {
+    token,
+    client_id: CLIENT_ID,
+    client_secret: CLIENT_SECRET,
+  };
+  try {
+    const response = await axios.post(LOGOUT_URL, data, instance);
     return response.data;
   } catch (error) {
     return error.response.data;

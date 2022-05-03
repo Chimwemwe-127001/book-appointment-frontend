@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     if (!accessToken && !loading) {
-      if (errorMsgs === 'Invalid Email/Password. Please try again') {
+      if (!errorMsgs || errorMsgs === 'Invalid Email/Password. Please try again') {
         navigate('/login');
       } else {
         navigate('/signup');

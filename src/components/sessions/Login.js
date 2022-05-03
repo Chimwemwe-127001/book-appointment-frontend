@@ -15,12 +15,12 @@ const Login = () => {
 
   useEffect(() => {
     emailRef.current.focus();
-    if (errorMsgs) {
+    if (errorMsgs === 'Invalid Email/Password. Please try again') {
       setError(errorMsgs);
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     if (!emailRef.current.value || !passwordRef.current.value) {
@@ -32,9 +32,9 @@ const Login = () => {
       password: passwordRef.current.value,
     };
 
-    dispatch(loginUser(payload));
+    await dispatch(loginUser(payload));
 
-    if (errorMsgs) {
+    if (errorMsgs === 'Invalid Email/Password. Please try again') {
       setError(errorMsgs);
     } else {
       navigate('/');
