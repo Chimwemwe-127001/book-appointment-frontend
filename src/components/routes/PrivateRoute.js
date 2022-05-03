@@ -7,11 +7,16 @@ import PropTypes from 'prop-types';
 const PrivateRoute = ({ children }) => {
   const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
   const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
+  const errorMsgs = useSelector(({ signUpReducer }) => signUpReducer.errorMsgs);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!accessToken && !loading) {
-      navigate('/login');
+      if (errorMsgs === 'Invalid Email/Password. Please try again') {
+        navigate('/login');
+      } else {
+        navigate('/signup');
+      }
     }
   }, []);
 

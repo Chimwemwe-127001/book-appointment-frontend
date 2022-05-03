@@ -37,7 +37,7 @@ const Signup = () => {
       password: passwordRef.current.value,
     };
 
-    dispatch(signUpUser(payload));
+    await dispatch(signUpUser(payload));
 
     if (errorMsgs) {
       setError(errorMsgs);
