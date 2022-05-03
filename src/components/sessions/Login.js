@@ -66,7 +66,7 @@ const Login = () => {
             </label>
             <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'hide' : 'show'}</button>
           </div>
-          <div className="form-group">
+          <div className="submit-btn">
             <button type="submit">Submit</button>
           </div>
         </form>
