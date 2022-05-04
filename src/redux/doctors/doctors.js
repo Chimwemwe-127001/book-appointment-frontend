@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import {initialState} from '../session/reducer/signUpReducer'
+import { initialState } from '../session/reducer/signUpReducer';
 
 // URLs
 const BASE_URL = 'http://localhost:3000/api/v1';
@@ -24,7 +24,7 @@ export const fetchDoctorsApi = (accessToken) => async (dispatch) => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  const doctors = returnValue.data.data.doctors;
+  const { doctors } = returnValue.data.data;
   dispatch(fetchDoctors(doctors));
 };
 

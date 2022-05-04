@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch  } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Paginate from './paginate';
 import insta from '../../assets/images/insta-icon-home.png';
@@ -15,7 +15,7 @@ const social = [
 
 const Doctors = () => {
   const user = useSelector((state) => state.signUpReducer);
-  const accessToken = user.accessToken
+  const { accessToken } = user;
   const dispatch = useDispatch();
   useEffect(() => {
     if (doctors.length === 0) {
@@ -49,7 +49,7 @@ const Doctors = () => {
           <p className="text-gray-400 text-center font-semibold mt-4">{item.details}</p>
           <div className="flex gap-4 mt-4">
             {social.map((item) => (
-              <a href="/" key={item.key}><img src={item.icon} alt="social" className="w-8" /></a>
+              <a href="/" key={item.icon}><img src={item.icon} alt="social" className="w-8" /></a>
             ))}
           </div>
         </div>

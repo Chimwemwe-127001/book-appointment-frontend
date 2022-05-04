@@ -22,7 +22,7 @@ const Details = () => {
           <img
             height="450px"
             width="450px"
-            src={ActualDoctor.image}
+            src={ActualDoctor.photo}
             alt="Portrait of doctor Bruno Rodrigues"
           />
         </div>
