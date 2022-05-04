@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { refreshAccessToken } from '../../redux/session/thunks/utils';
+import Spinner from '../Spinner';
 
 const PersistLogin = () => {
   const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
@@ -26,7 +27,7 @@ const PersistLogin = () => {
 
   return (
     <>
-      {loading ? <h1>Loading...</h1> : <Outlet />}
+      {loading ? <Spinner /> : <Outlet />}
     </>
   );
 };

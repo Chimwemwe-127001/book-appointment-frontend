@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import Spinner from '../Spinner';
 
 // eslint-disable-next-line consistent-return
 const PrivateRoute = ({ children }) => {
@@ -23,7 +24,7 @@ const PrivateRoute = ({ children }) => {
   if (accessToken) {
     return children;
   } if (loading) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   }
   return (
     <p>Something went wrong</p>

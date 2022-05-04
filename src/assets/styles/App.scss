@@ -1,6 +1,8 @@
 /* stylelint-disable no-descending-specificity */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
+@import 'Spinner';
+
 /* Reset Styles */
 * {
   margin: 0;
@@ -41,7 +43,7 @@ a {
 .header {
   background-image:
     linear-gradient(to right, #83cc16cc, #83cc16c2),
-    url('./assets/images/header-mobile-bg.png');
+    url('../images/header-mobile-bg.png');
   background-size: cover;
 }
 
@@ -85,7 +87,7 @@ a {
   justify-content: center;
   background-image:
     linear-gradient(to right, #99e428de, #a7f334a2),
-    url('./assets/images/header-mobile-bg.png');
+    url('../images/header-mobile-bg.png');
   background-size: cover;
   height: 100vh;
 }
@@ -305,6 +307,8 @@ a {
     margin-top: 20%;
   }
 }
+
+
 
 @keyframes slideIn {
   from {

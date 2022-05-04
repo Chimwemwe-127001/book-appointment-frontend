@@ -1,0 +1,38 @@
+.spinner {
+  position: relative;
+  left: 50%;
+  margin-top: 25%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit
+  }
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, #84cc16 0%, #feb500 100%);
+    animation: spin 0.5s infinite linear;
+  }
+
+  &::after {
+    width: 82%;
+    height: 82%;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
