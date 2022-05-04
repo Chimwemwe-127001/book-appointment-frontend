@@ -18,7 +18,7 @@ const ReserveForm = () => (
         </h4>
       </div>
       <div className="flex justify-center">
-        <p className="text-sm text-white mt-4 ml-2">
+        <p className="text-sm text-white text-center mt-4 ml-2">
           We have different doctors from different parts of the world.
           <br />
           If you wish to find out if we have a doctor who is available

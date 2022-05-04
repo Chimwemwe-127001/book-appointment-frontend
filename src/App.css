@@ -60,7 +60,7 @@
 
 /* Reserve Form */
 .reserveContainer {
-  background-color: #84cc16;
+  /* background-color: #84cc16; */
   background:
     linear-gradient(to right, #83cc16e5, #83cc16b6),
     url('./assets/images/reserveformdoctor.jpg') no-repeat center center;
