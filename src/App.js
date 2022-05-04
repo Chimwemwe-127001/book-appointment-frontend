@@ -7,6 +7,7 @@ import PublicRoute from './components/routes/PublicRoutes';
 import Signup from './components/sessions/Signup';
 import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
+import DetailsPage from './pages/DetailsPage';
 
 const App = () => (
   <div className="text-sky-500">
@@ -46,6 +47,7 @@ const App = () => (
         />
       </Route>
       <Route path="/home" element={<Home />} />
+      <Route path="/details/:name" element={<DetailsPage />} />
     </Routes>
   </div>
 );
