@@ -8,18 +8,17 @@ import Transition from '../components/Transition';
 const Home = () => {
   const home = gsap.timeline();
   const homedoc = useRef(null);
-  // const homeimg = useRef(null);
 
   useEffect(() => {
     gsap.from(homedoc.current, {
-      y: -1000,
+      y: 1000,
       delay: 1,
     });
     gsap.to(homedoc.current, {
       y: 0,
       delay: 1,
       ease: 'power4.out',
-      duration: 6,
+      duration: 3,
     });
   }, []);
 
