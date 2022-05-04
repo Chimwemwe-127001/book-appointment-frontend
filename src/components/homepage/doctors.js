@@ -23,7 +23,7 @@ const Doctors = () => {
       dispatch(fetchDoctorsApi(accessToken));
     }
   }, [dispatch]);
-  
+
   const [pageNumber, setPageNumber] = useState(0);
 
   const doctorsPerPage = 3;
