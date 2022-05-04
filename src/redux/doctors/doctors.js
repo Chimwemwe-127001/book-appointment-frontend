@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import { initialState } from '../session/reducer/signUpReducer';
 
 // URLs
 const BASE_URL = 'http://localhost:3000/api/v1';

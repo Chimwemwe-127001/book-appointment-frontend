@@ -16,13 +16,14 @@ const social = [
 const Doctors = () => {
   const user = useSelector((state) => state.signUpReducer);
   const { accessToken } = user;
+  const doctors = useSelector((state) => state.doctorsReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     if (doctors.length === 0) {
       dispatch(fetchDoctorsApi(accessToken));
     }
   }, [dispatch]);
-  const doctors = useSelector((state) => state.doctorsReducer);
+  
   const [pageNumber, setPageNumber] = useState(0);
 
   const doctorsPerPage = 3;
