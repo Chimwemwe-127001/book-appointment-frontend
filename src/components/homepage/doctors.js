@@ -14,10 +14,12 @@ const social = [
 ];
 
 const Doctors = () => {
+  const user = useSelector((state) => state.signUpReducer);
+  const accessToken = user.accessToken
   const dispatch = useDispatch();
   useEffect(() => {
     if (doctors.length === 0) {
-      dispatch(fetchDoctorsApi());
+      dispatch(fetchDoctorsApi(accessToken));
     }
   }, [dispatch]);
   const doctors = useSelector((state) => state.doctorsReducer);
@@ -37,7 +39,7 @@ const Doctors = () => {
     <div className="flex flex-col gap-4 mt-16 lg:flex-row">
       {displayDoctors.map((item) => (
         <div className="flex flex-col items-center w-80" key={item.name}>
-          <img src={item.image} alt="doctor" className="rounded-full w-60 h-60" />
+          <img src={item.photo} alt="doctor" className="rounded-full w-60 h-60" />
           <h3 className="uppercase text-slate-900 text-lg mt-6 font-bold">
             <Link to={`/details/${item.name}`}>
               {item.name}
