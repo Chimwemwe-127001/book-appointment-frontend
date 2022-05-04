@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpUser } from '../../redux/session/thunks/utils';
+import { clearErrorAction } from '../../redux/session/action/sessionActions';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Signup = () => {
     emailRef.current.focus();
     if (errorMsgs !== 'Invalid Email/Password. Please try again') {
       setError(errorMsgs);
+      dispatch(clearErrorAction());
     }
   }, []);
 
@@ -41,8 +43,9 @@ const Signup = () => {
 
     await dispatch(signUpUser(payload));
 
-    if (errorMsgs !== 'Invalid Email/Password. Please try again') {
+    if (errorMsgs) {
       setError(errorMsgs);
+      dispatch(clearErrorAction());
     } else {
       navigate('/');
     }
