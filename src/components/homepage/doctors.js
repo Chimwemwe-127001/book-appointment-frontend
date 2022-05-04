@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch  } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Paginate from './paginate';
 import insta from '../../assets/images/insta-icon-home.png';
 import twitter from '../../assets/images/twitter-icon-home.png';
 import facebook from '../../assets/images/fb-icon-home.png';
+import { fetchDoctorsApi } from '../../redux/doctors/doctors';
 
 const social = [
   { icon: facebook },
@@ -13,6 +14,12 @@ const social = [
 ];
 
 const Doctors = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (doctors.length === 0) {
+      dispatch(fetchDoctorsApi());
+    }
+  }, [dispatch]);
   const doctors = useSelector((state) => state.doctorsReducer);
   const [pageNumber, setPageNumber] = useState(0);
 
