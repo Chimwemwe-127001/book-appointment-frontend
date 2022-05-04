@@ -6,9 +6,9 @@ import { refreshAccessToken } from '../../redux/session/thunks/utils';
 import Spinner from '../Spinner';
 
 const PersistLogin = () => {
-  const loading = useSelector(({ signUpReducer }) => signUpReducer.loading);
-  const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
-  const refreshToken = useSelector(({ signUpReducer }) => signUpReducer.refreshToken);
+  const { loading, accessToken, refreshToken } = useSelector(({ signUpReducer }) => signUpReducer);
+  // const accessToken = useSelector(({ signUpReducer }) => signUpReducer.accessToken);
+  // const refreshToken = useSelector(({ signUpReducer }) => signUpReducer.refreshToken);
   const dispatch = useDispatch();
 
   useEffect(() => {
