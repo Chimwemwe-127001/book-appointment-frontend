@@ -73,3 +73,7 @@
   border-bottom-width: 3.1px;
   width: fit-content;
 }
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
