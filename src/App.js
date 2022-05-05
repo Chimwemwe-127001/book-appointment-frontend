@@ -55,8 +55,6 @@ const App = () => (
           )}
         />
       </Route>
-      {/* <Route path="/home" element={<Home />} /> */}
-      {/* <Route path="/reservations" element={<Reservations />} /> */}
       <Route path="/details/:name" element={<DetailsPage />} />
     </Routes>
   </div>
