@@ -31,6 +31,14 @@ const App = () => (
           )}
         />
         <Route
+          path="/details/:name"
+          element={(
+            <PrivateRoute>
+              <DetailsPage />
+            </PrivateRoute>
+          )}
+        />
+        <Route
           path="/logout"
           element={(
             <PrivateRoute>
@@ -55,7 +63,6 @@ const App = () => (
           )}
         />
       </Route>
-      <Route path="/details/:name" element={<DetailsPage />} />
     </Routes>
   </div>
 );
