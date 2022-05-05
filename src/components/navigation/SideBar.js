@@ -9,7 +9,7 @@ import Modal from '../sessions/Modal';
 const navigation = [
   { name: 'Doctors', href: '#', current: true },
   { name: 'Reserve', href: '#', current: false },
-  { name: 'My reservations', href: '#', current: false },
+  { name: 'My reservations', href: '', current: false },
   { name: 'Add doctor', href: '#', current: false },
   { name: 'Delete Doctor', href: '#', current: false },
 ];
@@ -58,7 +58,7 @@ const SideBar = () => {
           </div>
         </nav>
       </div>
-      <button type="button" onClick={handleModal} className="logout-btn">Logout</button>
+      <button type="button" onClick={handleModal} className="logout-btn ml-4">Logout</button>
       <div className="flex-shrink-0 flex-200 p-4">
         <div className="flex gap-2">
           {social.map((item) => (
