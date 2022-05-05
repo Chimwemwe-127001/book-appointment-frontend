@@ -30,9 +30,9 @@ export const fetchReservationsApi = (accessToken, doctors) => async (dispatch) =
     const data = { };
     data.city = item.city;
     data.date = item.date;
-    data.doctor_id = item.doctor_id
+    data.doctor_id = item.doctor_id;
     doctors.map((item2) => {
-      if (item.doctor_id == item2.id) {
+      if (item.doctor_id === item2.id) {
         data.doctor = item2;
       }
     });
