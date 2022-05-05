@@ -55,6 +55,28 @@ a {
   display: none;
 }
 
+.blob {
+  border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  cursor: pointer;
+}
+
+.blob:hover {
+  // transform: scale(1.02);
+  animation: morph 2s linear;
+}
+
+@keyframes morph{
+  0%, 100% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+}
+
 .previous-btn {
   position: absolute;
   top: 1750px;
