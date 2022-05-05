@@ -4,33 +4,33 @@ import Axios from 'axios';
 const BASE_URL = 'http://localhost:3000/api/v1';
 
 // conts
-const FETCH_DOCTORS = 'BOOK-APPOINTMENT/DOCTORS/FETCH_DOCTORS';
+const FETCH_RESERVATIONS = 'BOOK-APPOINTMENT/RESERVATIONS/FETCH_RESERVATIONS';
 
 // actions
-const fetchDoctors = (payload) => ({
-  type: FETCH_DOCTORS,
+const fetchReservations = (payload) => ({
+  type: FETCH_RESERVATIONS,
   payload,
 });
 
 // state
-const doctorsState = [];
+const reservationsState = [];
 
 //   APIs-functions
 
-export const fetchDoctorsApi = (accessToken) => async (dispatch) => {
-  const returnValue = await Axios.get(`${BASE_URL}/doctors`, {
+export const fetchReservationsApi = (accessToken, doctors) => async (dispatch) => {
+  const returnValue = await Axios.get(`${BASE_URL}/reservations`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
   const { doctors } = returnValue.data.data;
-  dispatch(fetchDoctors(doctors));
+  dispatch(fetchReservations(doctors));
 };
 
 // reducer
-const reducer = (state = doctorsState, action) => {
+const reducer = (state = reservationsState, action) => {
   switch (action.type) {
-    case FETCH_DOCTORS:
+    case FETCH_RESERVATIONS:
       return action.payload;
     default:
       return state;
