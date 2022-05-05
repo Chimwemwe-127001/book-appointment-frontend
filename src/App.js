@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './assets/styles/App.scss';
 import Home from './pages/Home';
+import ReserveForm from './pages/ReserveForm';
 import PersistLogin from './components/sessions/PersistLogin';
 import PrivateRoute from './components/routes/PrivateRoute';
 import PublicRoute from './components/routes/PublicRoutes';
@@ -63,6 +64,7 @@ const App = () => (
           )}
         />
       </Route>
+      <Route path="/reserve" element={(<ReserveForm />)} />
     </Routes>
   </div>
 );
