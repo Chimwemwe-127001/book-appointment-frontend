@@ -14,7 +14,7 @@ const menuItems = [
   { name: 'Doctors', path: '/' },
   { name: 'Reserve', path: '/' },
   { name: 'My reservations', path: '/' },
-  { name: 'Add dcotor', path: '/' },
+  { name: 'Add dcotor', path: '/doc_form' },
   { name: 'Delete doctor', path: '/' },
 ];
 
