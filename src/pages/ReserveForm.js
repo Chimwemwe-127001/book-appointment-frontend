@@ -26,15 +26,9 @@ const ReserveForm = () => (
         </p>
       </div>
       <div className="mt-5 flex justify-center">
-        <form action="/#" className="flex flex-col lg:block">
-          <input type="text" value="username" className="lg:mr-5 mb-4 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
-          <select name="cities" id="cities" className="p-3 mb-4 bg-lime-500 rounded-lg outline outline-offset-2 outline-3 hover:bg-white">
-            <option value="Nairobi">Nairobi</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Abuja">Abuja</option>
-            <option value="Lusaka">Lusaka</option>
-          </select>
-          <select name="availableDoctors" id="availableDoctors" className="lg:ml-5 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
+        <div className="flex flex-col lg:block">
+          <input type="text" placeholder="City" className="lg:mr-5 mb-4 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
+          <select name="availableDoctors" id="availableDoctors" className="lg:ml-3 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
             <option value="Ranjeet"> Dr.Ranjeet1 </option>
             <option value="Ranjeet"> Dr.Ranjeet2 </option>
             <option value="Ranjeet"> Dr.Ranjeet3 </option>
@@ -44,7 +38,7 @@ const ReserveForm = () => (
           <div className="flex flex-col items-center lg:grow">
             <input type="submit" value="Book Now" className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3" />
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
