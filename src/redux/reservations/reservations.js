@@ -23,8 +23,25 @@ export const fetchReservationsApi = (accessToken, doctors) => async (dispatch) =
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  const { doctors } = returnValue.data.data;
-  dispatch(fetchReservations(doctors));
+  const appointments = []
+  const { reservations } = returnValue.data.data;
+  
+  // console.log(doctors)
+  reservations.map((item)=>{
+    let data= { }
+    data.city=item.city
+    data.date=item.date
+    doctors.map((item2)=>{
+      // console.log(item2)
+      if(item.doctor_id==item2.id){
+        data.doctor = item2
+      }
+    })
+    appointments.push(data);
+  })
+
+  console.log(appointments)
+  dispatch(fetchReservations(appointments));
 };
 
 // reducer

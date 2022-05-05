@@ -23,6 +23,14 @@ const App = () => (
           )}
         />
         <Route
+          path="/reservations"
+          element={(
+            <PrivateRoute>
+              <Reservations />
+            </PrivateRoute>
+          )}
+        />
+        <Route
           path="/logout"
           element={(
             <PrivateRoute>
@@ -47,8 +55,8 @@ const App = () => (
           )}
         />
       </Route>
-      <Route path="/home" element={<Home />} />
-      <Route path="/reservations" element={<Reservations />} />
+      {/* <Route path="/home" element={<Home />} /> */}
+      {/* <Route path="/reservations" element={<Reservations />} /> */}
       <Route path="/details/:name" element={<DetailsPage />} />
     </Routes>
   </div>
