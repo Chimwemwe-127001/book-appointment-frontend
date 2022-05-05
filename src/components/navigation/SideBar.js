@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/logo.png';
+import { useSelector } from 'react-redux';
+import logo from '../../assets/images/app-logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
 import Modal from '../sessions/Modal';
 
-const navigation = [
-  { name: 'Doctors', href: '/', current: true },
-  { name: 'Reserve', href: '/reserve', current: false },
+const navigation1 = [
+  { name: 'Doctors', href: '#', current: true },
+  { name: 'Reserve', href: '#', current: false },
   { name: 'My reservations', href: '#', current: false },
+];
+
+const navigation2 = [
   { name: 'Add doctor', href: '#', current: false },
   { name: 'Delete Doctor', href: '#', current: false },
 ];
@@ -27,6 +31,7 @@ function classNames(...classes) {
 
 const SideBar = () => {
   const [showModal, setShowModal] = useState(false);
+  const { role } = useSelector(({ signUpReducer }) => signUpReducer.currentUser);
 
   const handleModal = () => {
     setShowModal(!showModal);
@@ -40,7 +45,22 @@ const SideBar = () => {
         </div>
         <nav className="mt-12 flex-1 desktop-nav" aria-label="Sidebar">
           <div className="pl-3 uppercase font-black text-md">
-            {navigation.map((item) => (
+            {navigation1.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={classNames(
+                  item.current
+                    ? 'bg-lime-500 text-slate-50'
+                    : 'text-slate-900 hover:bg-lime-200',
+                  'group flex items-center pl-5 py-3 hover:text-slate-900',
+                )}
+                aria-current={item.current ? 'page' : undefined}
+              >
+                {item.name}
+              </a>
+            ))}
+            {role === 'admin' && navigation2.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -58,7 +78,7 @@ const SideBar = () => {
           </div>
         </nav>
       </div>
-      <button type="button" onClick={handleModal} className="logout-btn">Logout</button>
+      <button type="button" onClick={handleModal} className="logout-btn ml-4">Logout</button>
       <div className="flex-shrink-0 flex-200 p-4">
         <div className="flex gap-2">
           {social.map((item) => (

@@ -5,29 +5,32 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpUser } from '../../redux/session/thunks/utils';
+import { clearErrorAction } from '../../redux/session/action/sessionActions';
 
 const Signup = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
   const navigate = useNavigate();
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const nameRef = useRef(null);
   const passwordConfirmRef = useRef();
   const [error, setError] = useState('');
   const errorMsgs = useSelector(({ signUpReducer }) => signUpReducer.errorMsgs);
 
   useEffect(() => {
-    emailRef.current.focus();
+    nameRef.current.focus();
     if (errorMsgs !== 'Invalid Email/Password. Please try again') {
       setError(errorMsgs);
+      dispatch(clearErrorAction());
     }
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    if (!emailRef.current.value || !passwordRef.current.value) {
+    if (!emailRef.current.value || !passwordRef.current.value || !nameRef.current.value) {
       return setError('Please fill out all fields');
     }
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -35,14 +38,16 @@ const Signup = () => {
     }
 
     const payload = {
+      name: nameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
 
     await dispatch(signUpUser(payload));
 
-    if (errorMsgs !== 'Invalid Email/Password. Please try again') {
+    if (errorMsgs) {
       setError(errorMsgs);
+      dispatch(clearErrorAction());
     } else {
       navigate('/');
     }
@@ -60,6 +65,12 @@ const Signup = () => {
         </div>
         <div className="form-container">
           <form onSubmit={(e) => handleSubmit(e)}>
+            <div className="form-group">
+              <input type="text" id="email" ref={nameRef} className="input_field" required />
+              <label htmlFor="name" className="input_label">
+                Full Name
+              </label>
+            </div>
             <div className="form-group">
               <input type="email" id="email" ref={emailRef} className="input_field" required />
               <label htmlFor="email" className="input_label">

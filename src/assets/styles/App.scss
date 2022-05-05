@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import 'Spinner';
 
 /* Reset Styles */
 * {
@@ -41,7 +42,7 @@ a {
 .header {
   background-image:
     linear-gradient(to right, #83cc16cc, #83cc16c2),
-    url('./assets/images/header-mobile-bg.png');
+    url('../images/header-mobile-bg.png');
   background-size: cover;
 }
 
@@ -51,6 +52,31 @@ a {
 
 .page-btns {
   display: none;
+}
+
+.blob {
+  border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  cursor: pointer;
+}
+
+.blob:hover {
+  // transform: scale(1.02);
+  animation: morph 2s linear;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+
+  67% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
 }
 
 .previous-btn {
@@ -85,7 +111,7 @@ a {
   justify-content: center;
   background-image:
     linear-gradient(to right, #99e428de, #a7f334a2),
-    url('./assets/images/header-mobile-bg.png');
+    url('../images/header-mobile-bg.png');
   background-size: cover;
   height: 100vh;
 }
@@ -285,6 +311,24 @@ a {
   &:hover {
     background: red;
     color: #fff;
+  }
+}
+
+.transition-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--accent-color-1);
+  z-index: 100000;
+
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 20%;
   }
 }
 

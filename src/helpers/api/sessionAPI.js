@@ -11,10 +11,11 @@ const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
-export const registerAction = async (payload) => {
+export const registerAction = async ({ name, email, password }) => {
   const data = {
-    email: payload.email,
-    password: payload.password,
+    name,
+    email,
+    password,
     client_id: CLIENT_ID,
   };
   try {

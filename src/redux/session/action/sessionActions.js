@@ -6,6 +6,7 @@ export const LOGIN_SUCCESS = 'sessions/LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'sessions/LOGIN_FAILURE';
 export const LOGOUT_SUCCESS = 'sessions/LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'sessions/LOGOUT_FAILURE';
+export const CLEAR_ERROR = 'sessions/CLEAR_ERROR';
 
 export const registerActionSuccess = (payload) => ({
   type: SIGN_UP_SUCCESS,
@@ -45,4 +46,8 @@ export const logoutActionSuccess = (payload) => ({
 export const logoutActionFailure = (payload) => ({
   type: LOGOUT_FAILURE,
   payload,
+});
+
+export const clearErrorAction = () => ({
+  type: CLEAR_ERROR,
 });
