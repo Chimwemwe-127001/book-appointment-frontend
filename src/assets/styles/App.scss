@@ -1,6 +1,5 @@
 /* stylelint-disable no-descending-specificity */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
-
 @import 'Spinner';
 
 /* Reset Styles */
@@ -65,13 +64,16 @@ a {
   animation: morph 2s linear;
 }
 
-@keyframes morph{
-  0%, 100% {
+@keyframes morph {
+  0%,
+  100% {
     border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
   }
+
   34% {
     border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
   }
+
   67% {
     border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
   }
