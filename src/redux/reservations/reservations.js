@@ -26,18 +26,18 @@ export const fetchReservationsApi = (accessToken, doctors) => async (dispatch) =
   const appointments = [];
   const { reservations } = returnValue.data.data;
 
-    for(let i=0; i<reservations.length; i++ ){
+  for (let i = 0; i < reservations.length; i += 1) {
     const data = { };
     data.city = reservations[i].city;
     data.date = reservations[i].date;
     data.doctor_id = reservations[i].doctor_id;
-      for(let j=0; j<doctors.length; j++ ){
+    for (let j = 0; j < doctors.length; j += 1) {
       if (reservations[i].doctor_id === doctors[j].id) {
         data.doctor = doctors[j];
       }
-    };
+    }
     appointments.push(data);
-  };
+  }
   dispatch(fetchReservations(appointments));
 };
 
