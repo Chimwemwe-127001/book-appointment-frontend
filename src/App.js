@@ -7,6 +7,8 @@ import PublicRoute from './components/routes/PublicRoutes';
 import Signup from './components/sessions/Signup';
 import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
+import DetailsPage from './pages/DetailsPage';
+import Reservations from './pages/Reservations';
 
 const App = () => (
   <div className="text-sky-500">
@@ -17,6 +19,22 @@ const App = () => (
           element={(
             <PrivateRoute>
               <Home />
+            </PrivateRoute>
+          )}
+        />
+        <Route
+          path="/reservations"
+          element={(
+            <PrivateRoute>
+              <Reservations />
+            </PrivateRoute>
+          )}
+        />
+        <Route
+          path="/details/:name"
+          element={(
+            <PrivateRoute>
+              <DetailsPage />
             </PrivateRoute>
           )}
         />
@@ -45,7 +63,6 @@ const App = () => (
           )}
         />
       </Route>
-      <Route path="/home" element={<Home />} />
     </Routes>
   </div>
 );

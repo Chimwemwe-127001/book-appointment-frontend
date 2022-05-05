@@ -1,55 +1,37 @@
+import Axios from 'axios';
+
+// URLs
+const BASE_URL = 'http://localhost:3000/api/v1';
+
+// conts
+const FETCH_DOCTORS = 'BOOK-APPOINTMENT/DOCTORS/FETCH_DOCTORS';
+
+// actions
+const fetchDoctors = (payload) => ({
+  type: FETCH_DOCTORS,
+  payload,
+});
+
 // state
-const initialState = [
-  {
-    name: 'Ranjeet',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLF5Kd7k3U7K1A2s7Xqqj1DLpLvvIFPdYZIQ&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet2',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPvzxHDfn24X9oAiPUVMwhsQ15ir5Kq2mWw&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet3',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3IAmy6NE_XDi22Unc6HnVnKNzUmejPilKPQ&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet4',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmqvkUkpAyPJlfA33wBdfx-Z_bYmXSkOOwUA&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet5',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMr2ztQlgpJjFGcxrjou7eoDmJs5aw2PT7XA&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet6',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPvzxHDfn24X9oAiPUVMwhsQ15ir5Kq2mWw&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet7',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLF5Kd7k3U7K1A2s7Xqqj1DLpLvvIFPdYZIQ&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet8',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMr2ztQlgpJjFGcxrjou7eoDmJs5aw2PT7XA&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-  {
-    name: 'Ranjeet9',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmqvkUkpAyPJlfA33wBdfx-Z_bYmXSkOOwUA&usqp=CAU',
-    details: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-  },
-];
+const doctorsState = [];
+
+//   APIs-functions
+
+export const fetchDoctorsApi = (accessToken) => async (dispatch) => {
+  const returnValue = await Axios.get(`${BASE_URL}/doctors`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const { doctors } = returnValue.data.data;
+  dispatch(fetchDoctors(doctors));
+};
 
 // reducer
-const reducer = (state = initialState, action) => {
+const reducer = (state = doctorsState, action) => {
   switch (action.type) {
+    case FETCH_DOCTORS:
+      return action.payload;
     default:
       return state;
   }
