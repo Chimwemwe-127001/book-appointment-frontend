@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import './App.scss';
+import './assets/styles/App.scss';
 import Home from './pages/Home';
 import PersistLogin from './components/sessions/PersistLogin';
 import PrivateRoute from './components/routes/PrivateRoute';

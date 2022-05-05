@@ -1,7 +1,7 @@
 import { getRefreshToken, setRefreshToken, deleteRefreshToken } from '../helpers';
 import {
   SIGN_UP_SUCCESS, SIGN_UP_FAILURE, REFRESH_ACCESS_TOKEN_SUCCESS, REFRESH_ACCESS_TOKEN_FAILURE,
-  LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS, LOGOUT_FAILURE,
+  LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS, LOGOUT_FAILURE, CLEAR_ERROR,
 } from '../action/sessionActions';
 
 const initialState = {
@@ -100,6 +100,13 @@ const signUpReducer = (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        error: false,
+        errorMsgs: '',
+        loading: false,
       };
     default:
       return state;

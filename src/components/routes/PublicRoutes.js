@@ -1,7 +1,8 @@
+/* eslint-disable consistent-return */
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Spinner from '../Spinner';
 
-// eslint-disable-next-line consistent-return
 const PublicRoutes = ({ children }) => {
   const loading = false;
   const accessToken = false;
@@ -10,7 +11,7 @@ const PublicRoutes = ({ children }) => {
   if (!accessToken && !loading) {
     return children;
   } if (loading) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   } if (accessToken && !loading) {
     navigate('/login');
   } else {
