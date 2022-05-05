@@ -12,11 +12,10 @@ const Reservations = () => (
       {/* Hamburger for mobile */}
       <HamBurger />
       <div className="flex flex-col items-center w-screen lg:mt-4 lg:pr-44">
-        <h1 className="text-3xl text-slate-900 uppercase font-bold">Available Doctors</h1>
-        <p className="text-gray-500 mt-1 text-lg">Please select a doctor</p>
+        <h1 className="text-3xl text-slate-900 uppercase font-bold">All Reservations</h1>
       </div>
       <div className="flex flex-col items-center">
-        
+        Hello
       </div>
     </div>
   </div>

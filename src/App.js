@@ -8,6 +8,7 @@ import Signup from './components/sessions/Signup';
 import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
 import DetailsPage from './pages/DetailsPage';
+import Reservations from './pages/Reservations';
 
 const App = () => (
   <div className="text-sky-500">
@@ -47,6 +48,7 @@ const App = () => (
         />
       </Route>
       <Route path="/home" element={<Home />} />
+      <Route path="/reservations" element={<Reservations />} />
       <Route path="/details/:name" element={<DetailsPage />} />
     </Routes>
   </div>
