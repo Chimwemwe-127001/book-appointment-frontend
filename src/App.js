@@ -11,10 +11,12 @@ import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
 import DetailsPage from './pages/DetailsPage';
 import Reservations from './pages/Reservations';
+import NotFound from './pages/404';
 
 const App = () => (
   <div className="text-sky-500">
     <Routes>
+      <Route path="*" element={<NotFound />} />
       <Route element={<PersistLogin />}>
         <Route
           path="/"
@@ -33,7 +35,7 @@ const App = () => (
           )}
         />
         <Route
-          path="/details/:name"
+          path="/details/:id"
           element={(
             <PrivateRoute>
               <DetailsPage />
