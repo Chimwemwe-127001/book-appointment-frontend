@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 
 const Details = () => {
   const doctors = useSelector((state) => state.doctorsReducer);
-  const { name } = useParams();
-  const ActualDoctor = doctors.find((item) => item.name === name);
+  const { id } = useParams();
+  const ActualDoctor = doctors.find((item) => item.id === id);
   return (
     <div
       className="container mt-5"
