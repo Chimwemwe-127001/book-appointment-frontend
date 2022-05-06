@@ -1,0 +1,60 @@
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.514);
+  animation: fadeIn 0.5s ease-out;
+
+  .modal-content {
+    position: fixed;
+    top: 60px;
+    left: 28%;
+    right: 22%;
+    background-color: #fefefe;
+    width: 40%;
+    animation: slideIn 0.7s ease-out;
+    padding: 20px;
+
+    > h3 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    > div {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        border-radius: 5px;
+        margin: 0 20px;
+        font-size: 14px;
+
+        &:first-of-type {
+          border: solid 2px var(--accent-color-1);
+          padding: 8px;
+          color: rgb(110, 108, 108);
+        }
+
+        &:last-of-type {
+          background: red;
+          padding: 10px;
+          color: #fff;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 80%;
+      left: 10%;
+      right: 10%;
+    }
+  }
+}
