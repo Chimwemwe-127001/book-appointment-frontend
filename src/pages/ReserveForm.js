@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+
 import React, { useState } from 'react';
 import { FaBars, FaSistrix } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,21 +13,20 @@ const ReserveForm = () => {
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
-  const [doctorId, setDoctorId] = useState(0);
+  const [doctorId, setDoctorId] = useState(-1);
 
   const createReservation = (e) => {
     e.preventDefault();
-
+    if (city === '' || date === '' || doctorId === -1) return;
     const doctor = doctors.find((item) => item.id == doctorId);
     const data = {
       city,
       date,
       doctor,
     };
-
     dispatch(createReservationApi(accessToken, data));
-    // setTitle('');
-    // setCategory('');
+    setCity('');
+    setDate('');
   };
 
   return (
@@ -58,7 +59,6 @@ const ReserveForm = () => {
             <input
               type="text"
               placeholder="City"
-              required
               value={city}
               onChange={(e) => setCity(e.target.value)}
               className="lg:mr-5 mb-4 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3"
@@ -66,19 +66,17 @@ const ReserveForm = () => {
 
             <select
               name="availableDoctors"
-              required
               onChange={(e) => setDoctorId(e.target.value)}
               className="lg:ml-3 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3"
             >
               <option value="" selected disabled hidden>Choose here</option>
               {doctors.map((item) => (
-                <option key={item.key} value={item.id}>{item.name}</option>
+                <option key={item.id} value={item.id}>{item.name}</option>
               ))}
             </select>
 
             <input
               type="date"
-              required
               value={date}
               onChange={(e) => setDate(e.target.value)}
               className="text-white mt-6 lg:mt-0 lg:mr-10 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3"

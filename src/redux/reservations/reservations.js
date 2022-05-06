@@ -40,7 +40,7 @@ export const fetchReservationsApi = (accessToken, doctors) => async (dispatch) =
     const data = { };
     data.city = reservations[i].city;
     data.date = reservations[i].date;
-    data.id = reservations[i].id
+    data.id = reservations[i].id;
     for (let j = 0; j < doctors.length; j += 1) {
       if (reservations[i].doctor_id === doctors[j].id) {
         data.doctor = doctors[j];
@@ -69,8 +69,8 @@ export const cancelReservationApi = (accessToken, id) => async (dispatch) => {
       Authorization: `Bearer ${accessToken}`,
     },
     data: {
-      reservation_id: id
-    }
+      reservation_id: id,
+    },
   });
   dispatch(cancelReservation(id));
 };
@@ -82,7 +82,7 @@ const reducer = (state = reservationsState, action) => {
       return action.payload;
     case CREATE_RESERVATION:
       return [...state, action.payload];
-      case CANCEL_RESERVATION:
+    case CANCEL_RESERVATION:
       return state.filter((reservation) => reservation.id !== action.payload);
     default:
       return state;
