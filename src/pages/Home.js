@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { Link } from 'react-router-dom';
 import SideBar from '../components/navigation/SideBar';
 import HamBurger from '../components/navigation/HamBurger';
 import Doctors from '../components/homepage/doctors';
@@ -37,12 +36,6 @@ const Home = () => {
           <div className="flex flex-col items-center w-screen lg:mt-24 lg:pr-44">
             <h1 className="text-3xl text-slate-900 uppercase font-bold">Available Doctors</h1>
             <p className="text-gray-500 mt-1 text-lg">Please select a doctor</p>
-            <Link to="/reserve">
-              test
-            </Link>
-            <Link to="/reservations">
-              test2
-            </Link>
           </div>
           <div className="flex flex-col items-center">
             <Doctors />

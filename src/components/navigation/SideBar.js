@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/app-logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
 import Modal from '../sessions/Modal';
-import { Link } from 'react-router-dom';
 
 const navigation1 = [
   { name: 'Doctors', path: '/', current: true },
@@ -30,15 +30,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const changeCurrentStatus =(name)=>{
-  for(let i=0; i<navigation1.length; i++){
-    if(navigation1[i].name != name){
-      navigation1[i].current = false
+const changeCurrentStatus = (name) => {
+  for (let i = 0; i < navigation1.length; i += 1) {
+    if (navigation1[i].name === name) {
+      navigation1[i].current = true;
     } else {
-      navigation1[i].current = true
+      navigation1[i].current = false;
     }
   }
-}
+};
 
 const SideBar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -58,19 +58,19 @@ const SideBar = () => {
           <div className="pl-3 uppercase font-black text-md">
             {navigation1.map((item) => (
               <Link to={item.path} key={item.name}>
-              <a
-              onClick={()=> changeCurrentStatus(item.name)}
-                href={item.path}
-                className={classNames(
-                  item.current
-                    ? 'bg-lime-500 text-slate-50'
-                    : 'text-slate-900 hover:bg-lime-200',
-                  'group flex items-center pl-5 py-3 hover:text-slate-900',
-                )}
-                aria-current={item.current ? 'page' : undefined}
-              >
-                {item.name}
-              </a>
+                <a
+                  onClick={() => changeCurrentStatus(item.name)}
+                  href={item.path}
+                  className={classNames(
+                    item.current
+                      ? 'bg-lime-500 text-slate-50'
+                      : 'text-slate-900 hover:bg-lime-200',
+                    'group flex items-center pl-5 py-3 hover:text-slate-900',
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </a>
               </Link>
             ))}
             {role === 'admin' && navigation2.map((item) => (

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
-import { Link } from 'react-router-dom';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -49,8 +49,8 @@ const HamBurger = () => {
             {
               menuItems.map((item) => (
                 <li key={item.name}>
-                  <Link to={item.path} >
-                  <a href={item.path}>{item.name}</a>
+                  <Link to={item.path}>
+                    <a href={item.path}>{item.name}</a>
                   </Link>
                 </li>
               ))
