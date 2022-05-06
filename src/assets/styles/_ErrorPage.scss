@@ -3,7 +3,7 @@
   font-size: 50px;
   height: 100vh;
   width: 100vw;
-  background-image:url('../images/404.gif');
+  background-image: url('../images/404.gif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -13,12 +13,12 @@
   padding-top: 6rem;
 
   > div {
-
     &:first-of-type {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+
       p {
         font-size: 4rem;
         font-weight: bold;
