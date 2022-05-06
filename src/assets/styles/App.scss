@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import 'Animations';
 @import 'Spinner';
 @import 'Modal';
 
@@ -62,21 +63,6 @@ a {
 
 .blob:hover {
   animation: morph 2s linear;
-}
-
-@keyframes morph {
-  0%,
-  100% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-  }
-
-  34% {
-    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
-  }
-
-  67% {
-    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
-  }
 }
 
 .previous-btn {
@@ -267,57 +253,5 @@ a {
   @media (max-width: 768px) {
     width: 30%;
     margin-top: 70px;
-  }
-}
-
-.transition-effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--accent-color-1);
-  z-index: 100000;
-
-  h1 {
-    font-size: 50px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    margin-top: 20%;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .previous-btn {
-    top: 330px;
-    left: 280px;
-  }
-
-  .next-btn {
-    top: 330px;
-    right: 50px;
   }
 }
