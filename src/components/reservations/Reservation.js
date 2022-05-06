@@ -19,6 +19,9 @@ const Reservation = () => {
 
   return (
     <div className="w-full my-16 flex flex-col gap-10">
+      {reservations.length === 0 && (
+        <h3 className="text-lg text-center mt-4">No reservations available!</h3>
+      )}
       {
         reservations.map((item) => (
           <div key={item.id} className="flex justify-between mx-4">

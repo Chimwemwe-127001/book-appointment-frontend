@@ -6,11 +6,12 @@ import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
 import Modal from '../sessions/Modal';
+import { Link } from 'react-router-dom';
 
 const navigation1 = [
-  { name: 'Doctors', href: '#', current: true },
-  { name: 'Reserve', href: '#', current: false },
-  { name: 'My reservations', href: '#', current: false },
+  { name: 'Doctors', path: '/', current: true },
+  { name: 'Reserve', path: '/reserve', current: false },
+  { name: 'My reservations', path: '/reservations', current: false },
 ];
 
 const navigation2 = [
@@ -27,6 +28,16 @@ const social = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
+}
+
+const changeCurrentStatus =(name)=>{
+  for(let i=0; i<navigation1.length; i++){
+    if(navigation1[i].name != name){
+      navigation1[i].current = false
+    } else {
+      navigation1[i].current = true
+    }
+  }
 }
 
 const SideBar = () => {
@@ -46,9 +57,10 @@ const SideBar = () => {
         <nav className="mt-12 flex-1 desktop-nav" aria-label="Sidebar">
           <div className="pl-3 uppercase font-black text-md">
             {navigation1.map((item) => (
+              <Link to={item.path} key={item.name}>
               <a
-                key={item.name}
-                href={item.href}
+              onClick={()=> changeCurrentStatus(item.name)}
+                href={item.path}
                 className={classNames(
                   item.current
                     ? 'bg-lime-500 text-slate-50'
@@ -59,6 +71,7 @@ const SideBar = () => {
               >
                 {item.name}
               </a>
+              </Link>
             ))}
             {role === 'admin' && navigation2.map((item) => (
               <a

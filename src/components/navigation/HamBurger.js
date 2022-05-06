@@ -5,6 +5,7 @@ import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
+import { Link } from 'react-router-dom';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -12,8 +13,8 @@ function classNames(...classes) {
 
 const menuItems = [
   { name: 'Doctors', path: '/' },
-  { name: 'Reserve', path: '/' },
-  { name: 'My reservations', path: '/' },
+  { name: 'Reserve', path: '/reserve' },
+  { name: 'My reservations', path: '/reservations' },
   { name: 'Add dcotor', path: '/' },
   { name: 'Delete doctor', path: '/' },
 ];
@@ -48,7 +49,9 @@ const HamBurger = () => {
             {
               menuItems.map((item) => (
                 <li key={item.name}>
+                  <Link to={item.path} >
                   <a href={item.path}>{item.name}</a>
+                  </Link>
                 </li>
               ))
             }
