@@ -1,6 +1,36 @@
+import React, { useState } from 'react';
 import { FaBars, FaSistrix } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+import { createReservationApi } from '../redux/reservations/reservations';
 
-const ReserveForm = () => (
+const ReserveForm = () => {
+  const doctors = useSelector((state) => state.doctorsReducer);
+  const user = useSelector((state) => state.signUpReducer);
+  const { accessToken } = user;
+
+  const dispatch = useDispatch();
+  const [city, setCity] = useState('');
+  const [date, setDate] = useState('');
+  const [doctorId, setDoctorId] = useState(0);
+
+
+  const createReservation = (e) => {
+    e.preventDefault();
+    
+    const doctor = doctors.find((item) => item.id == doctorId);
+    const data = {
+      city,
+      date,
+      doctor
+    };
+
+    dispatch(createReservationApi(accessToken, data));
+    // setTitle('');
+    // setCategory('');
+  };
+
+
+  return (
   <div className="h-screen reserveContainer text-white">
     <div className="p-3 flex justify-between">
       <button type="button" className="text-white">
@@ -27,22 +57,35 @@ const ReserveForm = () => (
       </div>
       <div className="mt-5 flex justify-center">
         <div className="flex flex-col lg:block">
-          <input type="text" placeholder="City" required className="lg:mr-5 mb-4 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
-          <select name="availableDoctors" required id="availableDoctors" className="lg:ml-3 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
+          <input type="text" placeholder="City" required 
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+           className="lg:mr-5 mb-4 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
+
+          <select name="availableDoctors" required 
+            onChange={(e) => setDoctorId(e.target.value)}
+            className="lg:ml-3 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3">
             <option value="" selected disabled hidden>Choose here</option>
-            <option value="Ranjeet"> Dr.Ranjeet1 </option>
-            <option value="Ranjeet"> Dr.Ranjeet2 </option>
-            <option value="Ranjeet"> Dr.Ranjeet3 </option>
+            {doctors.map((item)=>(
+              <option key={item.key} value={item.id}>{item.name}</option>
+            ))}
           </select>
-          <input type="date" value="Date" required className="text-white mt-6 lg:mt-0 lg:mr-10 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
+
+          <input type="date" required 
+           value={date}
+           onChange={(e) => setDate(e.target.value)}
+          className="text-white mt-6 lg:mt-0 lg:mr-10 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3" />
           <br />
           <div className="flex flex-col items-center lg:grow">
-            <input type="submit" value="Book Now" className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3" />
+            <input type="submit" value="Book Now" 
+            onClick={createReservation}
+            className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3" />
           </div>
         </div>
       </div>
     </div>
   </div>
-);
+)
+  };
 
 export default ReserveForm;
