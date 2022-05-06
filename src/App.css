@@ -78,6 +78,9 @@
   filter: invert(1);
 }
 
-::placeholder{
-  color: white;
+input::-webkit-input-placeholder{
+  color: #fff;
+}
+input:-moz-placeholder {
+  color: #fff;
 }
