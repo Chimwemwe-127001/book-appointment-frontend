@@ -83,7 +83,7 @@ const SideBar = () => {
             {role === 'admin' && navigation2.map((item) => (
               <Link to={item.path} key={item.name}>
                 <a
-                onClick={() => changeCurrentStatus(item.name)}
+                  onClick={() => changeCurrentStatus(item.name)}
                   href={item.href}
                   className={classNames(
                     item.current
