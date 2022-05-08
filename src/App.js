@@ -10,6 +10,7 @@ import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
 import DetailsPage from './pages/DetailsPage';
 import Reservations from './pages/Reservations';
+import DoctorForm from './pages/DoctorForm';
 
 const App = () => (
   <div className="text-sky-500">
@@ -39,6 +40,22 @@ const App = () => (
             </PrivateRoute>
           )}
         />
+        <Route 
+        path="/reserve" 
+        element={(
+          <PrivateRoute>
+            <ReserveForm />
+            </PrivateRoute>
+            )} 
+        />
+        <Route 
+        path="/doctorform" 
+        element={(
+          <PrivateRoute>
+            <DoctorForm />
+            </PrivateRoute>
+            )} 
+        />
         <Route
           path="/logout"
           element={(
@@ -64,7 +81,6 @@ const App = () => (
           )}
         />
       </Route>
-      <Route path="/reserve" element={(<ReserveForm />)} />
     </Routes>
   </div>
 );

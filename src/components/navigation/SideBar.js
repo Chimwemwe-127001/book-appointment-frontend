@@ -5,6 +5,7 @@ import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
+import { Link } from 'react-router-dom';
 import Modal from '../sessions/Modal';
 
 const navigation1 = [
@@ -14,8 +15,8 @@ const navigation1 = [
 ];
 
 const navigation2 = [
-  { name: 'Add doctor', href: '#', current: false },
-  { name: 'Delete Doctor', href: '#', current: false },
+  { name: 'Add doctor', path: '/doctorform', current: false },
+  { name: 'Delete Doctor', path: '#', current: false },
 ];
 
 const social = [
@@ -61,8 +62,8 @@ const SideBar = () => {
               </a>
             ))}
             {role === 'admin' && navigation2.map((item) => (
+              <Link to={item.path} key={item.name}>
               <a
-                key={item.name}
                 href={item.href}
                 className={classNames(
                   item.current
@@ -74,6 +75,7 @@ const SideBar = () => {
               >
                 {item.name}
               </a>
+              </Link>
             ))}
           </div>
         </nav>
