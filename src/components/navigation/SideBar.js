@@ -15,8 +15,8 @@ const navigation1 = [
 ];
 
 const navigation2 = [
-  { name: 'Add doctor', href: '#', current: false },
-  { name: 'Delete Doctor', href: '#', current: false },
+  { name: 'Add doctor', path: '/doctorform', current: false },
+  { name: 'Delete Doctor', path: '/removedoctor', current: false },
 ];
 
 const social = [
@@ -74,19 +74,20 @@ const SideBar = () => {
               </Link>
             ))}
             {role === 'admin' && navigation2.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={classNames(
-                  item.current
-                    ? 'bg-lime-500 text-slate-50'
-                    : 'text-slate-900 hover:bg-lime-200',
-                  'group flex items-center pl-5 py-3 hover:text-slate-900',
-                )}
-                aria-current={item.current ? 'page' : undefined}
-              >
-                {item.name}
-              </a>
+              <Link to={item.path} key={item.name}>
+                <a
+                  href={item.href}
+                  className={classNames(
+                    item.current
+                      ? 'bg-lime-500 text-slate-50'
+                      : 'text-slate-900 hover:bg-lime-200',
+                    'group flex items-center pl-5 py-3 hover:text-slate-900',
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </a>
+              </Link>
             ))}
           </div>
         </nav>

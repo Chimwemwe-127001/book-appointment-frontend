@@ -42,7 +42,7 @@ const Doctors = () => {
         <div className="flex flex-col items-center w-80" key={item.name}>
           <img src={item.photo} alt="doctor" className="rounded-full w-60 h-60 blob" />
           <h3 className="uppercase text-slate-900 text-lg mt-6 font-bold">
-            <Link to={`/details/${item.name}`}>
+            <Link to={`/details/${item.id}`}>
               {item.name}
             </Link>
           </h3>

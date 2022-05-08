@@ -11,6 +11,8 @@ import Login from './components/sessions/Login';
 import Logout from './components/sessions/Logout';
 import DetailsPage from './pages/DetailsPage';
 import Reservations from './pages/Reservations';
+import DoctorForm from './pages/DoctorForm';
+import DeleteDoctor from './pages/DeleteDoctors';
 import NotFound from './pages/404';
 
 const App = () => (
@@ -43,6 +45,30 @@ const App = () => (
           )}
         />
         <Route
+          path="/reserve"
+          element={(
+            <PrivateRoute>
+              <ReserveForm />
+            </PrivateRoute>
+            )}
+        />
+        <Route
+          path="/doctorform"
+          element={(
+            <PrivateRoute>
+              <DoctorForm />
+            </PrivateRoute>
+            )}
+        />
+        <Route
+          path="/removedoctor"
+          element={(
+            <PrivateRoute>
+              <DeleteDoctor />
+            </PrivateRoute>
+            )}
+        />
+        <Route
           path="/logout"
           element={(
             <PrivateRoute>
@@ -67,7 +93,6 @@ const App = () => (
           )}
         />
       </Route>
-      <Route path="/reserve" element={(<ReserveForm />)} />
     </Routes>
   </div>
 );

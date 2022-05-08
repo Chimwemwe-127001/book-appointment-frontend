@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import './Details.css';
 import { BsFillGearFill, BsArrowRightCircle, BsFillCaretLeftFill } from 'react-icons/bs';
@@ -7,7 +8,7 @@ import { useSelector } from 'react-redux';
 const Details = () => {
   const doctors = useSelector((state) => state.doctorsReducer);
   const { id } = useParams();
-  const ActualDoctor = doctors.find((item) => item.id === id);
+  const ActualDoctor = doctors.find((item) => item.id == id);
   return (
     <div
       className="container mt-5"
