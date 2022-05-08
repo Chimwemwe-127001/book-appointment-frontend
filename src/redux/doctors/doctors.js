@@ -33,6 +33,16 @@ export const fetchDoctorsApi = (accessToken) => async (dispatch) => {
   dispatch(fetchDoctors(doctors));
 };
 
+export const createDoctorApi = (accessToken, data) => async (dispatch) => {
+  await Axios.post(`${BASE_URL}/doctors/create`, data,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+  dispatch(createDoctor(data));
+};
+
 // reducer
 const reducer = (state = doctorsState, action) => {
   switch (action.type) {
