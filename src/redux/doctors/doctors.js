@@ -13,6 +13,11 @@ const fetchDoctors = (payload) => ({
   payload,
 });
 
+const createDoctor = (payload) => ({
+  type: CREATE_DOCTOR,
+  payload,
+});
+
 // state
 const doctorsState = [];
 
