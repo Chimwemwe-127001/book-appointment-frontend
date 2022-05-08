@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
@@ -13,9 +14,9 @@ function classNames(...classes) {
 
 const menuItems = [
   { name: 'Doctors', path: '/' },
-  { name: 'Reserve', path: '/' },
-  { name: 'My reservations', path: '/' },
-  { name: 'Add doctor', path: '/' },
+  { name: 'Reserve', path: '/reserve' },
+  { name: 'My reservations', path: '/reservations' },
+  { name: 'Add dcotor', path: '/' },
   { name: 'Delete doctor', path: '/' },
 ];
 
@@ -56,7 +57,9 @@ const HamBurger = () => {
             {
               menuItems.map((item) => (
                 <li key={item.name}>
-                  <a href={item.path}>{item.name}</a>
+                  <Link to={item.path}>
+                    <a href={item.path}>{item.name}</a>
+                  </Link>
                 </li>
               ))
             }

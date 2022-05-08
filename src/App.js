@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './assets/styles/App.scss';
+import './App.css';
 import Home from './pages/Home';
 import ReserveForm from './pages/ReserveForm';
 import PersistLogin from './components/sessions/PersistLogin';
