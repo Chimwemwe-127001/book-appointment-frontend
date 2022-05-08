@@ -48,6 +48,8 @@ const reducer = (state = doctorsState, action) => {
   switch (action.type) {
     case FETCH_DOCTORS:
       return action.payload;
+      case CREATE_DOCTOR:
+      return [...state, action.payload];
     default:
       return state;
   }
