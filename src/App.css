@@ -77,3 +77,11 @@
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+
+input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+input:-moz-placeholder {
+  color: #fff;
+}

@@ -9,9 +9,9 @@ import github from '../../assets/images/github-icon.png';
 import Modal from '../sessions/Modal';
 
 const navigation1 = [
-  { name: 'Doctors', href: '#', current: true },
-  { name: 'Reserve', href: '#', current: false },
-  { name: 'My reservations', href: '#', current: false },
+  { name: 'Doctors', path: '/', current: true },
+  { name: 'Reserve', path: '/reserve', current: false },
+  { name: 'My reservations', path: '/reservations', current: false },
 ];
 
 const navigation2 = [
@@ -30,6 +30,16 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
+const changeCurrentStatus = (name) => {
+  for (let i = 0; i < navigation1.length; i += 1) {
+    if (navigation1[i].name === name) {
+      navigation1[i].current = true;
+    } else {
+      navigation1[i].current = false;
+    }
+  }
+};
+
 const SideBar = () => {
   const [showModal, setShowModal] = useState(false);
   const { role } = useSelector(({ signUpReducer }) => signUpReducer.currentUser);
@@ -47,19 +57,21 @@ const SideBar = () => {
         <nav className="mt-12 flex-1 desktop-nav" aria-label="Sidebar">
           <div className="pl-3 uppercase font-black text-md">
             {navigation1.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={classNames(
-                  item.current
-                    ? 'bg-lime-500 text-slate-50'
-                    : 'text-slate-900 hover:bg-lime-200',
-                  'group flex items-center pl-5 py-3 hover:text-slate-900',
-                )}
-                aria-current={item.current ? 'page' : undefined}
-              >
-                {item.name}
-              </a>
+              <Link to={item.path} key={item.name}>
+                <a
+                  onClick={() => changeCurrentStatus(item.name)}
+                  href={item.path}
+                  className={classNames(
+                    item.current
+                      ? 'bg-lime-500 text-slate-50'
+                      : 'text-slate-900 hover:bg-lime-200',
+                    'group flex items-center pl-5 py-3 hover:text-slate-900',
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </a>
+              </Link>
             ))}
             {role === 'admin' && navigation2.map((item) => (
               <Link to={item.path} key={item.name}>

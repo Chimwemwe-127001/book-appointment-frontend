@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './assets/styles/App.scss';
+import './App.css';
 import Home from './pages/Home';
 import ReserveForm from './pages/ReserveForm';
 import PersistLogin from './components/sessions/PersistLogin';
@@ -12,10 +13,12 @@ import DetailsPage from './pages/DetailsPage';
 import Reservations from './pages/Reservations';
 import DoctorForm from './pages/DoctorForm';
 import DeleteDoctor from './pages/DeleteDoctors';
+import NotFound from './pages/404';
 
 const App = () => (
   <div className="text-sky-500">
     <Routes>
+      <Route path="*" element={<NotFound />} />
       <Route element={<PersistLogin />}>
         <Route
           path="/"

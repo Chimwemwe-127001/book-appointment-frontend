@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
+import Modal from '../sessions/Modal';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -12,8 +14,8 @@ function classNames(...classes) {
 
 const menuItems = [
   { name: 'Doctors', path: '/' },
-  { name: 'Reserve', path: '/' },
-  { name: 'My reservations', path: '/' },
+  { name: 'Reserve', path: '/reserve' },
+  { name: 'My reservations', path: '/reservations' },
   { name: 'Add dcotor', path: '/' },
   { name: 'Delete doctor', path: '/' },
 ];
@@ -27,6 +29,13 @@ const social = [
 
 const HamBurger = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModal = () => {
+    setShowModal(!showModal);
+    setMobileMenu(false);
+  };
+
   return (
     <header className={`flex flex-col px-8 bg-slate-50 ${mobileMenu ? 'h-screen header' : 'h-fit'} fixed top-0 w-screen shadow-xl lg:hidden`}>
       <a href="/" className="text-lg text-slate-50"><img src={logo} className={`w-24 ${mobileMenu ? 'hidden' : 'block'}`} alt="logo" /></a>
@@ -48,11 +57,16 @@ const HamBurger = () => {
             {
               menuItems.map((item) => (
                 <li key={item.name}>
-                  <a href={item.path}>{item.name}</a>
+                  <Link to={item.path}>
+                    <a href={item.path}>{item.name}</a>
+                  </Link>
                 </li>
               ))
             }
           </ul>
+          <div className="logout">
+            <button type="button" onClick={handleModal} className="logout-btn ml-6">Logout</button>
+          </div>
         </div>
       </nav>
       <div className={classNames(mobileMenu ? 'block' : 'hidden', 'flex flex-col items-center mt-32')}>
@@ -63,6 +77,7 @@ const HamBurger = () => {
         </div>
         <p className="text-gray-700 font-bold mt-2">© 2022</p>
       </div>
+      { showModal && <Modal handleModal={handleModal} />}
     </header>
   );
 };
