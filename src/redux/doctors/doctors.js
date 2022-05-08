@@ -8,6 +8,7 @@ const FETCH_DOCTORS = 'BOOK-APPOINTMENT/DOCTORS/FETCH_DOCTORS';
 const CREATE_DOCTOR = 'BOOK-APPOINTMENT/DOCTORS/CREATE_DOCTOR';
 const DELETE_DOCTOR = 'BOOK-APPOINTMENT/DOCTORS/DELETE_DOCTOR';
 
+
 // actions
 const fetchDoctors = (payload) => ({
   type: FETCH_DOCTORS,
@@ -16,6 +17,11 @@ const fetchDoctors = (payload) => ({
 
 const createDoctor = (payload) => ({
   type: CREATE_DOCTOR,
+  payload,
+});
+
+const deleteDoctor = (payload) => ({
+  type: DELETE_DOCTOR,
   payload,
 });
 
@@ -44,6 +50,18 @@ export const createDoctorApi = (accessToken, data) => async (dispatch) => {
   dispatch(createDoctor(data));
 };
 
+export const deleteDoctorApi = (accessToken, id) => async (dispatch) => {
+  await Axios.delete(`${BASE_URL}/doctors/delete`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+    data: {
+      doctor_id: id,
+    },
+  });
+  dispatch(deleteDoctor(id));
+};
+
 // reducer
 const reducer = (state = doctorsState, action) => {
   switch (action.type) {
@@ -51,6 +69,8 @@ const reducer = (state = doctorsState, action) => {
       return action.payload;
       case CREATE_DOCTOR:
       return [...state, action.payload];
+      case DELETE_DOCTOR:
+      return state.filter((doctor) => doctor.id !== action.payload);
     default:
       return state;
   }
