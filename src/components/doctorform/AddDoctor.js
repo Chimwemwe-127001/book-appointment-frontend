@@ -4,6 +4,35 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createDoctorApi } from '../../redux/doctors/doctors';
 
 const AddDoctor=() =>{
+  const user = useSelector((state) => state.signUpReducer);
+  const { accessToken } = user;
+
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [details, setDetails] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [city, setCity] = useState('');
+  const [cost, setCost] = useState(0);
+  const [speciality, setSpeciality] = useState('');
+
+  const createDoctor = (e) => {
+    e.preventDefault();
+    if (city === '' || name === '' || cost === -1 || photo === '' || details === '' || speciality === '') return;
+    const data = {
+      name,
+      details,
+      photo,
+      city,
+      cost,
+      specialization: speciality
+    };
+    dispatch(createDoctorApi(accessToken, data));
+    setCity('');
+    setName('');
+    setDetails('');
+    setCost(0);
+    setPhoto('');
+  };
   return (
     <div className="card centered-div mt-4">
       <div className="card-body">
