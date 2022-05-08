@@ -5,6 +5,7 @@ const BASE_URL = 'http://localhost:3000/api/v1';
 
 // conts
 const FETCH_DOCTORS = 'BOOK-APPOINTMENT/DOCTORS/FETCH_DOCTORS';
+const CREATE_DOCTOR = 'BOOK-APPOINTMENT/DOCTORS/CREATE_DOCTOR';
 
 // actions
 const fetchDoctors = (payload) => ({
