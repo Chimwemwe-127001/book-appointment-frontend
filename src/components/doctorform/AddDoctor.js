@@ -33,7 +33,7 @@ const AddDoctor = () => {
     setPhoto('');
   };
   return (
-    <div className="card centered-div mt-4">
+    <div className="mt-4">
       <div className="card-body">
         <form className="add-form w-60">
           <div className="mb-3">

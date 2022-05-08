@@ -38,6 +38,13 @@ const changeCurrentStatus = (name) => {
       navigation1[i].current = false;
     }
   }
+  for (let i = 0; i < navigation2.length; i += 1) {
+    if (navigation2[i].name === name) {
+      navigation2[i].current = true;
+    } else {
+      navigation2[i].current = false;
+    }
+  }
 };
 
 const SideBar = () => {
@@ -76,6 +83,7 @@ const SideBar = () => {
             {role === 'admin' && navigation2.map((item) => (
               <Link to={item.path} key={item.name}>
                 <a
+                onClick={() => changeCurrentStatus(item.name)}
                   href={item.href}
                   className={classNames(
                     item.current
