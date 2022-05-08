@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import './Details.css';
 import { BsFillGearFill, BsArrowRightCircle, BsFillCaretLeftFill } from 'react-icons/bs';

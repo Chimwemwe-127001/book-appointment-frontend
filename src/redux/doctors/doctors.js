@@ -8,7 +8,6 @@ const FETCH_DOCTORS = 'BOOK-APPOINTMENT/DOCTORS/FETCH_DOCTORS';
 const CREATE_DOCTOR = 'BOOK-APPOINTMENT/DOCTORS/CREATE_DOCTOR';
 const DELETE_DOCTOR = 'BOOK-APPOINTMENT/DOCTORS/DELETE_DOCTOR';
 
-
 // actions
 const fetchDoctors = (payload) => ({
   type: FETCH_DOCTORS,
@@ -67,9 +66,9 @@ const reducer = (state = doctorsState, action) => {
   switch (action.type) {
     case FETCH_DOCTORS:
       return action.payload;
-      case CREATE_DOCTOR:
+    case CREATE_DOCTOR:
       return [...state, action.payload];
-      case DELETE_DOCTOR:
+    case DELETE_DOCTOR:
       return state.filter((doctor) => doctor.id !== action.payload);
     default:
       return state;

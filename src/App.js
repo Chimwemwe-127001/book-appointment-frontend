@@ -11,6 +11,7 @@ import Logout from './components/sessions/Logout';
 import DetailsPage from './pages/DetailsPage';
 import Reservations from './pages/Reservations';
 import DoctorForm from './pages/DoctorForm';
+import DeleteDoctor from './pages/DeleteDoctors';
 
 const App = () => (
   <div className="text-sky-500">
@@ -40,21 +41,29 @@ const App = () => (
             </PrivateRoute>
           )}
         />
-        <Route 
-        path="/reserve" 
-        element={(
-          <PrivateRoute>
-            <ReserveForm />
+        <Route
+          path="/reserve"
+          element={(
+            <PrivateRoute>
+              <ReserveForm />
             </PrivateRoute>
-            )} 
+            )}
         />
-        <Route 
-        path="/doctorform" 
-        element={(
-          <PrivateRoute>
-            <DoctorForm />
+        <Route
+          path="/doctorform"
+          element={(
+            <PrivateRoute>
+              <DoctorForm />
             </PrivateRoute>
-            )} 
+            )}
+        />
+        <Route
+          path="/removedoctor"
+          element={(
+            <PrivateRoute>
+              <DeleteDoctor />
+            </PrivateRoute>
+            )}
         />
         <Route
           path="/logout"
