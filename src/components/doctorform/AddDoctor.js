@@ -13,10 +13,27 @@ const AddDoctor = () => {
   const [city, setCity] = useState('');
   const [cost, setCost] = useState(0);
   const [speciality, setSpeciality] = useState('');
+  const [successNotice, setSuccessNotice] = useState(false);
+  const [errorNotice, setErrorNotice] = useState(false);
+
+  const flashNotices =(type)=>{
+    if(type === 'error'){
+      setErrorNotice(true);
+      setSuccessNotice(false);
+    }
+
+    if(type === 'success'){
+      setErrorNotice(false);
+      setSuccessNotice(true);
+    }
+  }
 
   const createDoctor = (e) => {
     e.preventDefault();
-    if (city === '' || name === '' || cost === -1 || photo === '' || details === '' || speciality === '') return;
+    if (city === '' || name === '' || cost === -1 || photo === '' || details === '' || speciality === ''){
+      flashNotices('error')
+      return;
+    }
     const data = {
       name,
       details,
@@ -31,6 +48,7 @@ const AddDoctor = () => {
     setDetails('');
     setCost(0);
     setPhoto('');
+    flashNotices('success')
   };
   return (
     <div className="mt-4">
@@ -94,6 +112,12 @@ const AddDoctor = () => {
           </div>
         </form>
       </div>
+      {successNotice && (
+        <p className="text-center text-sky-500 text-lg mt-4">Doctor created succesfully!</p>
+      )}
+      {errorNotice && (
+        <p className="text-center text-sky-500 text-lg mt-4">Please complete all fields!</p>
+      )}
     </div>
 
   );
