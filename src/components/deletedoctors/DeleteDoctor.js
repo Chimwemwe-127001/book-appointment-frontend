@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteDoctorApi } from '../../redux/doctors/doctors';
 
@@ -30,8 +30,8 @@ const DeleteDoctor = () => {
               </div>
             ))
           }
-          {successNotice && (
-        <p className="text-center text-sky-500 text-lg mt-4">Doctor deleted succesfully!</p>
+      {successNotice && (
+      <p className="text-center text-sky-500 text-lg mt-4">Doctor deleted succesfully!</p>
       )}
     </div>
 

@@ -17,22 +17,22 @@ const ReserveForm = () => {
   const [successNotice, setSuccessNotice] = useState(false);
   const [errorNotice, setErrorNotice] = useState(false);
 
-  const flashNotices =(type)=>{
-    if(type === 'error'){
+  const flashNotices = (type) => {
+    if (type === 'error') {
       setErrorNotice(true);
       setSuccessNotice(false);
     }
 
-    if(type === 'success'){
+    if (type === 'success') {
       setErrorNotice(false);
       setSuccessNotice(true);
     }
-  }
+  };
 
   const createReservation = (e) => {
     e.preventDefault();
-    if (city === '' || date === '' || doctorId === -1){
-      flashNotices('error')
+    if (city === '' || date === '' || doctorId === -1) {
+      flashNotices('error');
       return;
     }
     const doctor = doctors.find((item) => item.id == doctorId);
@@ -44,7 +44,7 @@ const ReserveForm = () => {
     dispatch(createReservationApi(accessToken, data));
     setCity('');
     setDate('');
-    flashNotices('success')
+    flashNotices('success');
   };
 
   return (

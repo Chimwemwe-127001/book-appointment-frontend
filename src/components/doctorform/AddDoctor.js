@@ -16,22 +16,22 @@ const AddDoctor = () => {
   const [successNotice, setSuccessNotice] = useState(false);
   const [errorNotice, setErrorNotice] = useState(false);
 
-  const flashNotices =(type)=>{
-    if(type === 'error'){
+  const flashNotices = (type) => {
+    if (type === 'error') {
       setErrorNotice(true);
       setSuccessNotice(false);
     }
 
-    if(type === 'success'){
+    if (type === 'success') {
       setErrorNotice(false);
       setSuccessNotice(true);
     }
-  }
+  };
 
   const createDoctor = (e) => {
     e.preventDefault();
-    if (city === '' || name === '' || cost === -1 || photo === '' || details === '' || speciality === ''){
-      flashNotices('error')
+    if (city === '' || name === '' || cost === -1 || photo === '' || details === '' || speciality === '') {
+      flashNotices('error');
       return;
     }
     const data = {
@@ -48,7 +48,7 @@ const AddDoctor = () => {
     setDetails('');
     setCost(0);
     setPhoto('');
-    flashNotices('success')
+    flashNotices('success');
   };
   return (
     <div className="mt-4">
