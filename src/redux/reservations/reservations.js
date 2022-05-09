@@ -28,14 +28,21 @@ const cancelReservation = (payload) => ({
 const reservationsState = [];
 
 //   APIs-functions
-export const fetchReservationsApi = (accessToken, doctors) => async (dispatch) => {
-  const returnValue = await Axios.get(`${BASE_URL}/reservations`, {
+export const fetchReservationsApi = (accessToken) => async (dispatch) => {
+  const returnValue = await Axios.get(`${BASE_URL}/doctors`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const { doctors } = returnValue.data.data;
+
+  const returnValue2 = await Axios.get(`${BASE_URL}/reservations`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
   const appointments = [];
-  const { reservations } = returnValue.data.data;
+  const { reservations } = returnValue2.data.data;
   for (let i = 0; i < reservations.length; i += 1) {
     const data = { };
     data.city = reservations[i].city;

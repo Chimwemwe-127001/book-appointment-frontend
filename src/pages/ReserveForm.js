@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
+import { FaBars, FaSistrix } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { createReservationApi } from '../redux/reservations/reservations';
+import { fetchDoctorsApi } from '../redux/doctors/doctors';
 
 const ReserveForm = () => {
   const navigate = useNavigate();
@@ -19,6 +21,24 @@ const ReserveForm = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [doctorId, setDoctorId] = useState(-1);
+  const [successNotice, setSuccessNotice] = useState(false);
+  const [errorNotice, setErrorNotice] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchDoctorsApi(accessToken));
+  }, [dispatch]);
+
+  const flashNotices = (type) => {
+    if (type === 'error') {
+      setErrorNotice(true);
+      setSuccessNotice(false);
+    }
+
+    if (type === 'success') {
+      setErrorNotice(false);
+      setSuccessNotice(true);
+    }
+  };
 
   useEffect(() => {
     if (state) {
@@ -27,7 +47,10 @@ const ReserveForm = () => {
   }, [state]);
   const createReservation = (e) => {
     e.preventDefault();
-    if (city === '' || date === '' || doctorId === -1) return;
+    if (city === '' || date === '' || doctorId === -1) {
+      flashNotices('error');
+      return;
+    }
     const doctor = doctors.find((item) => item.id == doctorId);
     const data = {
       city,
@@ -37,6 +60,7 @@ const ReserveForm = () => {
     dispatch(createReservationApi(accessToken, data));
     setCity('');
     setDate('');
+    flashNotices('success');
   };
 
   return (
@@ -101,6 +125,12 @@ const ReserveForm = () => {
           </div>
         </div>
       </div>
+      {successNotice && (
+        <p className="text-center text-slate-50 text-lg mt-4">Reservation created succesfully!</p>
+      )}
+      {errorNotice && (
+        <p className="text-center text-slate-50 text-lg mt-4">Please complete all fields!</p>
+      )}
     </div>
   );
 };

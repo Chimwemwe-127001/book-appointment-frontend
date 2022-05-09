@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservationsApi, cancelReservationApi } from '../../redux/reservations/reservations';
 
 const Reservation = () => {
-  const doctors = useSelector((state) => state.doctorsReducer);
   const user = useSelector((state) => state.signUpReducer);
   const { accessToken } = user;
+  const [successNotice, setSuccessNotice] = useState(false);
 
   const reservations = useSelector((state) => state.reservationsReducer);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchReservationsApi(accessToken, doctors));
+    dispatch(fetchReservationsApi(accessToken));
   }, [dispatch]);
 
   const cancelReservation = (id) => {
     dispatch(cancelReservationApi(accessToken, id));
+    setSuccessNotice(true);
   };
 
   return (
@@ -38,6 +39,9 @@ const Reservation = () => {
           </div>
         ))
       }
+      {successNotice && (
+        <p className="text-center text-sky-500 text-lg mt-4">Reservation canceled succesfully!</p>
+      )}
     </div>
   );
 };
