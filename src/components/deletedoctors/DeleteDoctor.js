@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteDoctorApi } from '../../redux/doctors/doctors';
+import { deleteDoctorApi, fetchDoctorsApi } from '../../redux/doctors/doctors';
 
 const DeleteDoctor = () => {
   const doctors = useSelector((state) => state.doctorsReducer);
@@ -13,6 +13,11 @@ const DeleteDoctor = () => {
     dispatch(deleteDoctorApi(accessToken, id));
     setSuccessNotice(true);
   };
+
+  useEffect(() => {
+    dispatch(fetchDoctorsApi(accessToken));
+  }, [dispatch]);
+
   return (
     <div className="w-full my-16 flex flex-col gap-10">
       {

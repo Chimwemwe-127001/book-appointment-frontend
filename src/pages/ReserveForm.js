@@ -1,9 +1,10 @@
 /* eslint-disable eqeqeq */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaSistrix } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { createReservationApi } from '../redux/reservations/reservations';
+import { fetchDoctorsApi } from '../redux/doctors/doctors';
 
 const ReserveForm = () => {
   const doctors = useSelector((state) => state.doctorsReducer);
@@ -16,6 +17,10 @@ const ReserveForm = () => {
   const [doctorId, setDoctorId] = useState(-1);
   const [successNotice, setSuccessNotice] = useState(false);
   const [errorNotice, setErrorNotice] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchDoctorsApi(accessToken));
+  }, [dispatch]);
 
   const flashNotices = (type) => {
     if (type === 'error') {
