@@ -12,7 +12,7 @@ const AddDoctor = () => {
   const [details, setDetails] = useState('');
   const [photo, setPhoto] = useState('');
   const [city, setCity] = useState('');
-  const [cost, setCost] = useState(0);
+  const [cost, setCost] = useState();
   const [speciality, setSpeciality] = useState('');
   const [successNotice, setSuccessNotice] = useState(false);
   const [errorNotice, setErrorNotice] = useState(false);
@@ -53,7 +53,7 @@ const AddDoctor = () => {
   };
   return (
     <>
-      <div className="mt-6 fh">
+      <div className="pt-10 lg:fh lg:pt-20">
         <h1 className="text-3xl text-slate-900 uppercase font-bold">Add a doctor</h1>
       </div>
       <div className="card centered-div mt-4">
@@ -66,15 +66,6 @@ const AddDoctor = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                className="form-control"
-                type="text"
-                value={details}
-                onChange={(e) => setDetails(e.target.value)}
-                placeholder="Details"
               />
             </div>
             <div className="mb-3">
@@ -112,12 +103,27 @@ const AddDoctor = () => {
                 placeholder="Add cost $"
               />
             </div>
+            <div className="mb-3">
+              <input
+                className="form-control pb-14"
+                type="text"
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                placeholder="Details"
+              />
+            </div>
             <div className="mb-3 d-flex justify-content-center">
               <button type="submit" onClick={createDoctor} className="btn bt">Add Doctor</button>
             </div>
           </form>
         </div>
       </div>
+      {successNotice && (
+        <p className="text-center text-slate-50 text-lg mt-4">Doctor created succesfully!</p>
+      )}
+      {errorNotice && (
+        <p className="text-center text-slate-50 text-lg mt-4">Please complete all fields!</p>
+      )}
     </>
   );
   // };

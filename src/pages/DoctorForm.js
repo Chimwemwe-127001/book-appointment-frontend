@@ -10,7 +10,7 @@ const DoctorForm = () => (
       <div className="hidden lg:flex lg:flex-shrink-0">
         <SideBar />
       </div>
-      <div className="flex flex-col min-w-0 flex-1 lg:overflow-hidden mt-32 lg:mt-1">
+      <div className="flex flex-col min-w-0 flex-1 lg:overflow-hidden mt-20 lg:mt-1">
         {/* Hamburger for mobile */}
         <HamBurger />
 
