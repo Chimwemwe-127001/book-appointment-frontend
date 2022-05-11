@@ -19,9 +19,7 @@ const Doctors = () => {
   const doctors = useSelector((state) => state.doctorsReducer);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (doctors.length === 0) {
-      dispatch(fetchDoctorsApi(accessToken));
-    }
+    dispatch(fetchDoctorsApi(accessToken));
   }, [dispatch]);
 
   const [pageNumber, setPageNumber] = useState(0);

@@ -1,11 +1,17 @@
 /* eslint-disable eqeqeq */
 
-import React, { useState } from 'react';
-import { FaBars, FaSistrix } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { createReservationApi } from '../redux/reservations/reservations';
+import { fetchDoctorsApi } from '../redux/doctors/doctors';
 
 const ReserveForm = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { state } = location;
   const doctors = useSelector((state) => state.doctorsReducer);
   const user = useSelector((state) => state.signUpReducer);
   const { accessToken } = user;
@@ -14,10 +20,36 @@ const ReserveForm = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [doctorId, setDoctorId] = useState(-1);
+  const [successNotice, setSuccessNotice] = useState(false);
+  const [errorNotice, setErrorNotice] = useState(false);
 
+  useEffect(() => {
+    dispatch(fetchDoctorsApi(accessToken));
+  }, [dispatch]);
+
+  const flashNotices = (type) => {
+    if (type === 'error') {
+      setErrorNotice(true);
+      setSuccessNotice(false);
+    }
+
+    if (type === 'success') {
+      setErrorNotice(false);
+      setSuccessNotice(true);
+    }
+  };
+
+  useEffect(() => {
+    if (state) {
+      setCity(state.city);
+    }
+  }, [state]);
   const createReservation = (e) => {
     e.preventDefault();
-    if (city === '' || date === '' || doctorId === -1) return;
+    if (city === '' || date === '' || doctorId === -1) {
+      flashNotices('error');
+      return;
+    }
     const doctor = doctors.find((item) => item.id == doctorId);
     const data = {
       city,
@@ -27,16 +59,14 @@ const ReserveForm = () => {
     dispatch(createReservationApi(accessToken, data));
     setCity('');
     setDate('');
+    flashNotices('success');
   };
 
   return (
     <div className="h-screen reserveContainer text-white">
-      <div className="p-3 flex justify-between">
-        <button type="button" className="text-white">
-          <FaBars />
-        </button>
-        <button type="button" className="text-white">
-          <FaSistrix />
+      <div className="p-3 flex justify-start">
+        <button onClick={() => navigate(-1)} type="button" className="text-white">
+          <FaArrowLeft />
         </button>
       </div>
 
@@ -69,8 +99,9 @@ const ReserveForm = () => {
               onChange={(e) => setDoctorId(e.target.value)}
               className="lg:ml-3 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3"
             >
-              <option value="" selected disabled hidden>Choose here</option>
-              {doctors.map((item) => (
+              {state && <option value={state?.name} defaultValue>{state?.name}</option>}
+              {!state && <option value="" defaultValue>Choose a Doctor</option>}
+              {!state && doctors.map((item) => (
                 <option key={item.id} value={item.id}>{item.name}</option>
               ))}
             </select>
@@ -93,6 +124,12 @@ const ReserveForm = () => {
           </div>
         </div>
       </div>
+      {successNotice && (
+        <p className="text-center text-slate-50 text-lg mt-4">Reservation created succesfully!</p>
+      )}
+      {errorNotice && (
+        <p className="text-center text-slate-50 text-lg mt-4">Please complete all fields!</p>
+      )}
     </div>
   );
 };

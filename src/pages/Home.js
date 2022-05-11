@@ -33,7 +33,7 @@ const Home = () => {
         <div className="flex flex-col min-w-0 flex-1 lg:overflow-hidden mt-32 lg:mt-1">
           {/* Hamburger for mobile */}
           <HamBurger />
-          <div className="flex flex-col items-center w-screen lg:mt-24 lg:pr-44">
+          <div className="flex flex-col items-center w-screen lg:mt-14 lg:pr-44">
             <h1 className="text-3xl text-slate-900 uppercase font-bold">Available Doctors</h1>
             <p className="text-gray-500 mt-1 text-lg">Please select a doctor</p>
           </div>
