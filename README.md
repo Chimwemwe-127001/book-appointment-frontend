@@ -8,7 +8,7 @@
 
 [Book Appoinments Backend](https://github.com/Chimwemwe-127001/book-appointment-backend)
 
-## preview:
+## Preview:
 
 ### Home Page
 
