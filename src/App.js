@@ -56,7 +56,7 @@ const App = () => (
           path="/doctorform"
           element={(
             // <PrivateRoute>
-              <DoctorForm />
+            <DoctorForm />
             // </PrivateRoute>
             )}
         />
