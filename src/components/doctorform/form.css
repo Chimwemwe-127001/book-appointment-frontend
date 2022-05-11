@@ -1,0 +1,21 @@
+.doc {
+  background-image:
+    linear-gradient(to right, #83cc16cc, #83cc16c2),
+    url('../../assets/images/bd.jpeg');
+  background-size: cover;
+  height: 100%;
+}
+
+.bt {
+  background-color: #84cc16;
+  color: white;
+  border-radius: 5px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.fh {
+  margin-top: 100px;
+}
