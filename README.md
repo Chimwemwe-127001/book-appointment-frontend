@@ -10,7 +10,21 @@
 
 ## preview:
 
+### Home Page
 
+![screenshot](./src/assets/images/homepage.png)
+
+### Details Page
+
+![screenshot](./src/assets/images/details-page.png)
+
+### Book Appoinments Page
+
+![screenshot](./src/assets/images/book-reserve.png)
+
+### Appointments Page
+
+![screenshot](./src/assets/images/reservations.png)
 
 ## Built With
 

@@ -34,6 +34,8 @@ const Doctors = () => {
     setPageNumber(selected);
   };
 
+  // console.log(doctors[0].photo)
+
   return (
     <div className="flex flex-col gap-4 mt-16 lg:flex-row">
       {displayDoctors.map((item) => (

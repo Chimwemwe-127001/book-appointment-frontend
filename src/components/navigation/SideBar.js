@@ -100,6 +100,7 @@ const SideBar = () => {
           </div>
         </nav>
       </div>
+      <a href="https://book-appointments-backend.herokuapp.com/api-docs" className="py-1 ml-4 px-4 mb-3 rounded text-slate-900 w-32 border-3 border-lime-500">Api docs</a>
       <button type="button" onClick={handleModal} className="logout-btn ml-4">Logout</button>
       <div className="flex-shrink-0 flex-200 p-4">
         <div className="flex gap-2">

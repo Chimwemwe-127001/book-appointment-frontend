@@ -63,6 +63,9 @@ const HamBurger = () => {
                 </li>
               ))
             }
+            <li>
+              <a href="https://book-appointments-backend.herokuapp.com/api-docs">Api docs</a>
+            </li>
           </ul>
           <div className="logout">
             <button type="button" onClick={handleModal} className="logout-btn ml-6">Logout</button>
