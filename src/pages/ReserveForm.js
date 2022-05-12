@@ -1,15 +1,15 @@
 /* eslint-disable eqeqeq */
 
 import React, { useState, useEffect } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { createReservationApi } from '../redux/reservations/reservations';
 import { fetchDoctorsApi } from '../redux/doctors/doctors';
+import SideBar from '../components/navigation/SideBar';
 
 const ReserveForm = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const { state } = location;
   const doctors = useSelector((state) => state.doctorsReducer);
@@ -65,9 +65,14 @@ const ReserveForm = () => {
   return (
     <div className="h-screen reserveContainer text-white">
       <div className="p-3 flex justify-start">
-        <button onClick={() => navigate(-1)} type="button" className="text-white">
-          <FaArrowLeft />
+        <button type="button" className="text-white" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <FaBars />
         </button>
+        <div className="offcanvas offcanvas-start" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div className="offcanvas-body pt-0 pb-0">
+            <SideBar />
+          </div>
+        </div>
       </div>
 
       <div>

@@ -85,3 +85,7 @@ input::-webkit-input-placeholder {
 input:-moz-placeholder {
   color: #fff;
 }
+
+.offcanvas-start {
+  width: max-content;
+}
