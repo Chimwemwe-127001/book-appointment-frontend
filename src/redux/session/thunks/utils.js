@@ -55,11 +55,11 @@ export const refreshAccessToken = (refreshToken) => async (dispatch) => {
       refreshToken,
     );
     if (refreshResponse.error) {
-      return dispatch(refreshTokenFailure(refreshResponse.data));
+      return dispatch(refreshTokenFailure(refreshResponse?.data));
     }
     const userResponse = await getCurrentUser(refreshResponse.access_token);
     if (userResponse.error) {
-      return dispatch(refreshTokenFailure(userResponse.data));
+      return dispatch(refreshTokenFailure(userResponse?.data));
     }
     const response = {
       ...refreshResponse,

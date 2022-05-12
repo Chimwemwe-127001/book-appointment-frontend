@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 // URLs
-const BASE_URL = 'https://book-appointments-backend.herokuapp.com/api/v1';
+const BASE_URL = 'http://localhost:3000/api/v1';
 
 // conts
 const FETCH_RESERVATIONS = 'BOOK-APPOINTMENT/RESERVATIONS/FETCH_RESERVATIONS';
@@ -61,7 +61,7 @@ export const fetchReservationsApi = (accessToken) => async (dispatch) => {
 export const createReservationApi = (accessToken, data) => async (dispatch) => {
   const { city, date, doctor } = data;
   const newReservation = { doctor_id: doctor.id, city, date };
-  await Axios.post(`${BASE_URL}/reservations/create`, newReservation,
+  await Axios.post(`${BASE_URL}/reservations`, newReservation,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -71,12 +71,9 @@ export const createReservationApi = (accessToken, data) => async (dispatch) => {
 };
 
 export const cancelReservationApi = (accessToken, id) => async (dispatch) => {
-  await Axios.delete(`${BASE_URL}/reservations/delete`, {
+  await Axios.delete(`${BASE_URL}/reservations/${id}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-    },
-    data: {
-      reservation_id: id,
     },
   });
   dispatch(cancelReservation(id));
