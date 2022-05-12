@@ -70,14 +70,14 @@ const ReserveForm = () => {
         </button>
       </div>
 
-      <div>
+      <div className="res-form">
         <div className="flex justify-center">
           <h4 className="text-4xl tracking-widest reserveFormHeading">
             Book Appointment
           </h4>
         </div>
         <div className="flex justify-center">
-          <p className="text-sm text-white text-center mt-4 ml-2">
+          <p className="text-md text-white text-center mt-4 ml-2">
             We have different doctors from different parts of the world.
             <br />
             If you wish to find out if we have a doctor who is available
