@@ -56,7 +56,7 @@ const AddDoctor = () => {
       <div className="pt-10 lg:fh lg:pt-20">
         <h1 className="text-3xl text-slate-900 uppercase font-bold">Add a doctor</h1>
       </div>
-      <div className="card centered-div mt-4">
+      <div className="card1 centered-div mt-4">
         <div className="card-body">
           <form className="add-form w-60">
             <div className="mb-3">
