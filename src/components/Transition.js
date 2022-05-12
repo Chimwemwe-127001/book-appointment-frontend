@@ -6,7 +6,7 @@ const Transition = ({ timeline }) => {
   const trans = useRef(null);
   useEffect(() => {
     timeline.to(trans.current, {
-      duration: 10,
+      duration: 1,
       y: -2000,
       ease: Power4.easeOut,
       delay: 1,
@@ -14,9 +14,7 @@ const Transition = ({ timeline }) => {
   });
   return (
     <section>
-      <div className="transition-effect" ref={trans}>
-        <h1>Welcome to Appointments App</h1>
-      </div>
+      <div className="transition-effect" ref={trans} />
     </section>
   );
 };

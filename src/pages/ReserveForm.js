@@ -118,7 +118,7 @@ const ReserveForm = () => {
                 type="submit"
                 value="Book Now"
                 onClick={createReservation}
-                className="mt-4 text-lime-500 bg-white p-3 rounded-lg outline outline-offset-2 outline-3"
+                className="mt-4 text-lime-500 p-3 rounded-lg outline outline-offset-2 outline-3 reserve-bttn"
               />
             </div>
           </div>

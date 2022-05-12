@@ -18,7 +18,7 @@ const Home = () => {
       y: 0,
       delay: 1,
       ease: 'power4.out',
-      duration: 3,
+      duration: 1,
     });
   }, []);
 
