@@ -1,7 +1,7 @@
 import axios from 'axios';
 import instance from './axios';
 
-const BASE_URL = 'http://localhost:3000/api/v1';
+const BASE_URL = 'https://book-appointments-backend.herokuapp.com/api/v1';
 const LOGIN_URL = `${BASE_URL}/oauth/token`;
 const LOGOUT_URL = `${BASE_URL}/oauth/revoke`;
 const SIGNUP_URL = `${BASE_URL}/users`;
