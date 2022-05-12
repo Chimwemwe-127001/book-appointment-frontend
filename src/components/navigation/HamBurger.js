@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
@@ -16,6 +17,9 @@ const menuItems = [
   { name: 'Doctors', path: '/' },
   { name: 'Reserve', path: '/reserve' },
   { name: 'My reservations', path: '/reservations' },
+];
+
+const menuItems2 = [
   { name: 'Add dcotor', path: '/doctorform' },
   { name: 'Delete doctor', path: '/removedoctor' },
 ];
@@ -30,6 +34,7 @@ const social = [
 const HamBurger = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const { role } = useSelector(({ signUpReducer }) => signUpReducer.currentUser);
 
   const handleModal = () => {
     setShowModal(!showModal);
@@ -63,6 +68,15 @@ const HamBurger = () => {
                 </li>
               ))
             }
+            {role === 'admin' && (
+              menuItems2.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.path}>
+                    <a href={item.path}>{item.name}</a>
+                  </Link>
+                </li>
+              ))
+            )}
           </ul>
           <div className="logout">
             <button type="button" onClick={handleModal} className="logout-btn ml-6">Logout</button>
