@@ -8,6 +8,9 @@
 
 [Book Appoinments Backend](https://github.com/Chimwemwe-127001/book-appointment-backend)
 
+## Kanban Board
+[Kanban Board](https://github.com/users/Chimwemwe-127001/projects/3)
+
 ## Preview:
 
 ### Home Page
