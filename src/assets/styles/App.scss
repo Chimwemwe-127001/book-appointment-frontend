@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 @import 'Animations';
 @import 'Spinner';
 @import 'Modal';
@@ -27,6 +27,7 @@ html {
 body {
   font-size: 16px;
   height: 100%;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 ul li {
