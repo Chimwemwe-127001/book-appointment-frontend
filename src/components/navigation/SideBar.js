@@ -57,8 +57,8 @@ const SideBar = () => {
 
   return (
     <div className="flex flex-col w-64">
-      <div className="flex-1 flex flex-col pt-3 pb-4 overflow-y-auto">
-        <div className="flex items-center flex-shrink-0 px-4">
+      <div className="flex-1 flex flex-col pt-0 pb-4 overflow-y-auto">
+        <div className="flex items-center flex-shrink-0 px-2">
           <a href="/"><img src={logo} className="w-40" alt="logo" /></a>
         </div>
         <nav className="mt-12 flex-1 desktop-nav" aria-label="Sidebar">
