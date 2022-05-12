@@ -1,0 +1,65 @@
+.reserve {
+  background-color: #97bf11;
+  border-radius: 25px;
+}
+
+.reserve-div {
+  margin-top: 40px;
+}
+
+.reserve-btn {
+  background-color: #97bf11 !important;
+  border: none !important;
+  color: white !important;
+  font-size: larger !important;
+  font-weight: 800 !important;
+}
+
+.details-fill {
+  z-index: 100;
+  top: 50vh;
+  float: left;
+  width: 60px;
+  height: 50px;
+  background-color: #97bf11;
+  color: white;
+  font-size: 20px;
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+  margin-top: 10% !important;
+  margin-left: -25%;
+}
+
+.close {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  border: none;
+  color: black;
+  margin-right: 10%;
+  background: #cbe86c;
+  background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+:is(text, p) {
+  color: black;
+}
+
+.main-page-handle-left {
+  z-index: 100;
+  position: absolute;
+  top: 90vh;
+  width: 60px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: #97bf11;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+.outline-3 {
+  border-radius: 50px;
+}

@@ -1,0 +1,131 @@
+/* stylelint-disable no-descending-specificity */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import 'Animations';
+@import 'Spinner';
+@import 'Modal';
+@import 'Sessions';
+@import 'ErrorPage';
+
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color-1: #84cc16;
+  --accent-color-1: #feb500;
+}
+
+/* Global styles */
+html {
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  height: 100%;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.mobile-btns {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.header {
+  background-image:
+    linear-gradient(to right, #83cc16cc, #83cc16c2),
+    url('../images/header-mobile-bg.png');
+  background-size: cover;
+}
+
+.desktop-nav {
+  font-family: 'Roboto', sans-serif;
+}
+
+.page-btns {
+  display: none;
+}
+
+.blob {
+  border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  cursor: pointer;
+}
+
+.blob:hover {
+  animation: morph 2s linear;
+}
+
+.previous-btn {
+  position: absolute;
+  top: 1750px;
+  left: 80px;
+  background-color: #84cc16;
+  padding: 15px 20px 15px 40px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 0 30px 30px 0;
+}
+
+.next-btn {
+  position: absolute;
+  top: 1750px;
+  right: 80px;
+  background-color: #84cc16;
+  padding: 15px 40px 15px 20px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 30px 0 0 30px;
+}
+
+.disable-btns {
+  background-color: rgba(128, 128, 128, 0.553);
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn {
+  color: red;
+  border: solid 2px red;
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+
+  &:hover {
+    background: red;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    width: 30%;
+    margin-top: 70px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .previous-btn {
+    top: 330px;
+    left: 280px;
+  }
+
+  .next-btn {
+    top: 330px;
+    right: 50px;
+  }
+}
