@@ -42,6 +42,7 @@ const ReserveForm = () => {
   useEffect(() => {
     if (state) {
       setCity(state.city);
+      setDoctorId(state.id);
     }
   }, [state]);
   const createReservation = (e) => {
@@ -104,7 +105,7 @@ const ReserveForm = () => {
               onChange={(e) => setDoctorId(e.target.value)}
               className="lg:ml-3 lg:mr-5 p-3 bg-lime-500 rounded-lg outline outline-offset-2 outline-3"
             >
-              {state && <option value={state?.name} defaultValue>{state?.name}</option>}
+              {state && <option value={state.id} defaultValue>{state.name}</option>}
               {!state && <option value="" defaultValue>Choose a Doctor</option>}
               {!state && doctors.map((item) => (
                 <option key={item.id} value={item.id}>{item.name}</option>
