@@ -8,6 +8,19 @@
 
 [Book Appoinments Backend](https://github.com/Chimwemwe-127001/book-appointment-backend)
 
+## Kanban Board
+[Kanban Board](https://github.com/users/Chimwemwe-127001/projects/3)
+
+## Initial state of kanban board
+[Initial Kanban Board](https://github.com/Chimwemwe-127001/book-appointment-frontend/issues/13)
+
+> ***We are a group of five***
+1. Team 1 - [Chimwemwe-127001](https://github.com/Chimwemwe-127001)
+2. Team 2 - [Ranjeet](https://github.com/thecodechaser )
+3. Team 3 - [Ellis](https://github.com/mwanawabangona)
+4. Team 4 - [Ritta](https://github.com/Buyaki01)
+5. Team 5 - [Anselem](https://github.com/AnselemOdims )
+
 ## Preview:
 
 ### Home Page
